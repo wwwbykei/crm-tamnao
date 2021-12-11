@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>카테고리&#47;상품별 구매 분포 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body class="page-report-purchase">
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-sidebar">
+		<div class="sidebar-content">
+			<a href="index.html" class="sidebar-header">
+				<img src="images/logo.png" alt="탐나오">
+				<h1><span>고객관계관리</span> 시스템</h1>
+				<span>Customer Relationship Management System</span>
+			</a>
+			<ul class="sidebar-menu">
+				<li>
+					<a href="index.html" class=""><i class="material-icons-outlined">dashboard</i>대시보드</a><!--이 메뉴를 누른 경우, a 태그에 'active' 클래스 추가-->
+				</li>
+				<li>
+					<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCustomer">
+						<i class="material-icons-outlined">groups</i>고객 관리
+					</button>
+					<ul id="collapseCustomer" class="collapse">
+						<li><a href="customer-category.html">고객 구분 관리</a></li><!--이 레벨의 메뉴를 누른 경우, a 태그에 'active' 클래스 추가-->
+						<li><a href="customer-leave.html">구매전환 이탈 고객 관리</a></li>
+						<li><a href="customer-repurchase.html">재구매 고객 관리</a></li>
+						<li><a href="customer-point.html">사회공헌포인트 현황</a></li>
+					</ul>
+				</li>
+				<li>
+					<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseData">
+						<i class="material-icons-outlined">assessment</i>외부데이터 분석
+					</button>
+					<ul id="collapseData" class="collapse">
+						<li><a href="data-relation.html">유동인구와 상품 판매량</a></li>
+						<li><a href="data-regionsales.html">지역별 카드&#47;매출 분석</a></li>
+						<li><a href="data-type.html">POS&#47;음식점 유형별 분석</a></li>
+					</ul>
+				</li>
+				<li>
+					<button class="btn-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport">
+						<i class="material-icons-outlined">history_edu</i>리포트
+					</button>
+					<ul id="collapseReport" class="collapse show">
+						<li><a href="report-regionsales.html">지역별 상품 판매 분포</a></li>
+						<li><a href="report-purchase.html" class="active">카테고리&#47;상품별 구매 분포</a></li>
+					</ul>
+				</li>
+				<li>
+					<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSystem">
+						<i class="material-icons-outlined">settings</i>시스템 관리
+					</button>
+					<ul id="collapseSystem" class="collapse">
+						<li><a href="system-right.html">권한 관리</a></li>
+						<li><a href="system-group.html">권한 그룹 관리</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!--//sidebar-content-->
+		<div class="sidebar-account">
+			<a href="">
+				<img src="images/temp-profile.jpg" alt="">
+				<div>
+					<h6>홍길동</h6>
+					<span>리포트 관리자</span>
+				</div>
+			</a>
+			<button type="button"><i class="material-icons-outlined">logout</i></button>
+		</div>
+	</div>
+	<!--//layout-sidebar-->
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>리포트</span>
+			<h2>카테고리&#47;상품별 구매 분포</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>카테고리</dt>
+				<dd>
+					<label class="checkbox-container" for="categoryAll">전체
+						<input type="checkbox" id="categoryAll" checked>
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryGolf">골프
+						<input type="checkbox" id="categoryGolf">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySouvenir">기념품
+						<input type="checkbox" id="categorySouvenir">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryRentcar">렌터카
+						<input type="checkbox" id="categoryRentcar">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
+						<input type="checkbox" id="categorySocialSpot">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
+						<input type="checkbox" id="categorySocialLeisure">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
+						<input type="checkbox" id="categorySocialRestaurant">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
+						<input type="checkbox" id="categorySocialBeauty">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
+						<input type="checkbox" id="categorySocialAgency">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
+						<input type="checkbox" id="categorySocialActivity">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
+						<input type="checkbox" id="categorySocialSeat">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryHotel">숙박
+						<input type="checkbox" id="categoryHotel">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryProduct">특산품
+						<input type="checkbox" id="categoryProduct">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryAir">항공
+						<input type="checkbox" id="categoryAir">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>상품</dt>
+				<dd>
+					<div>
+						<select>
+							<option disabled selected>상품 선택</option>
+							<option>2020년</option>
+							<option>2019년</option>
+							<option></option>
+						</select>
+						<button type="button" class="btn-h40 btn-outline">추가</button>
+					</div>
+					<input type="text" readonly class="i-readonly width-100" value="상품명 1, 상품명 2, ....">
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>연도 &#47; 월</dt>
+				<dd>
+					<select>
+						<option>2021년</option>
+						<option>2020년</option>
+						<option>2019년</option>
+						<option></option>
+					</select>
+					<select>
+						<option>전체</option>
+						<option>1월</option>
+						<option>2월</option>
+						<option>3월</option>
+						<option>4월</option>
+						<option>5월</option>
+						<option>6월</option>
+						<option>7월</option>
+						<option>8월</option>
+						<option>9월</option>
+						<option>10월</option>
+						<option>11월</option>
+						<option>12월</option>
+					</select>
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<div class="section section-gender">
+			<h3>성별 구매건수</h3>
+			<div class="chart-simpleDonut">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로/세로 180px 고정
+						2. 차트 라인 두께 : 15px
+						3. 색상
+							- 밝은 빨강 : #E4B9B9
+							- 삘강 : #DF4F49
+					-->
+					<img src="images/temp-chart/report-category-gender.png">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red-light">
+						<h6>남자 &#58; 36.6&#37;</h6>
+						<span>30건</span>
+					</li>
+					<li class="chart-label color-red">
+						<h6>여자 &#58; 63.4&#37;</h6>
+						<span>72건</span>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-age">
+			<h3>연령별 구매건수</h3>
+			<div class="chart-simpleDonut">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로/세로 180px 고정
+						2. 차트 라인 두께 : 15px
+						3. 색상
+							- 밝은 회색 : #EFEDEC
+							- 중간 회색 : #A59E96
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/report-category-age.png">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-brown-gray">
+						<h6>20대 &#58; 36.6&#37;</h6>
+						<span>30건</span>
+					</li>
+					<li class="chart-label color-yellow-gray">
+						<h6>30대 &#58; 63.4&#37;</h6>
+						<span>72건</span>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>40대 &#58; 63.4&#37;</h6>
+						<span>72건</span>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-linechart">
+			<h3>지역별 구매 고객 매출액</h3>
+			<div class="chart-realtimeLine">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 너비 : 가변 100%
+						2. 높이 : 248px
+						2. 차트 라인 두께 : 2px
+						3. 색상
+							- 삘강 : #DF4F49
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/report-category-region.png" style="height:248px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red">
+						<h6>구매 건수</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>구매 금액</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+	</div>
+	<!--//layout-content-->
+
+</body>
+
+</html>

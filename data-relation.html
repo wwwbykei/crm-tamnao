@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>유동인구와 상품 판매량 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>외부 데이터 분석</span>
+			<h2>유동인구와 상품 판매량</h2>
+		</div>
+
+		<form class="form-filter">
+			<div class="filter-row">
+				<dl class="filter-item">
+					<dt>연도 &#47; 월</dt>
+					<dd>
+						<select>
+							<option>2021년</option>
+							<option>2020년</option>
+							<option>2019년</option>
+							<option></option>
+						</select>
+						<select>
+							<option>전체</option>
+							<option>1월</option>
+							<option>2월</option>
+							<option>3월</option>
+							<option>4월</option>
+							<option>5월</option>
+							<option>6월</option>
+							<option>7월</option>
+							<option>8월</option>
+							<option>9월</option>
+							<option>10월</option>
+							<option>11월</option>
+							<option>12월</option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="filter-item">
+					<dt>시간대</dt>
+					<dd>
+						<select>
+							<option>11시 &dash; 14시</option>
+							<option>14시 &dash; 17시</option>
+							<option>17시 &dash; 20시</option>
+							<option></option>
+						</select>
+					</dd>
+				</dl>
+			</div><!--//filter-row-->
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<!--모달용 버튼
+			- 'data-bs-target'과 모달의 id가 일치해야 합니다.
+		-->
+		<a data-bs-toggle="modal" data-bs-target="#modalRelationOne">모달용 버튼 1</a>
+		<a data-bs-toggle="modal" data-bs-target="#modalRelationTwo">모달용 버튼 2</a>
+
+		<div class="map-region">
+			<!--아래 이미지를 지도로 바꿔주세요.-->
+			<img src="images/temp-map.png">
+		</div><!--//map-region-->
+
+	</div>
+	<!--//layout-content-->
+
+	<!-- Modal -->
+	<div class="modal fade modal-table" id="modalRelationOne" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">애월읍</h5><!--지도에서 클릭한 지역명 노출-->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" class="nowrap tc">순위</th>
+								<th scope="col">카테고리</th>
+								<th scope="col">상품명</th>
+								<th scope="col" class="nowrap">비율</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="active">
+								<th scope="row" class="nowrap tc">1</th>
+								<td class="nowrap">레저</td>
+								<td class="fw-bold">차귀도 낚시 체험</td>
+								<td>11.05 &#37;</td>
+							</tr>
+							<tr>
+								<th scope="row" class="nowrap tc">2</th>
+								<td class="nowrap">맛집</td>
+								<td class="fw-bold">제주 흑돈가</td>
+								<td>11.05 &#37;</td>
+							</tr>
+							<tr>
+								<th scope="row" class="nowrap tc">3</th>
+								<td class="nowrap">기념품</td>
+								<td class="fw-bold">한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿</td>
+								<td>11.05 &#37;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!--//modal-body-->
+			</div>
+		</div>
+	</div>
+	<div class="modal fade modal-table" id="modalRelationTwo" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">한림읍</h5><!--지도에서 클릭한 지역명 노출-->
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" class="nowrap tc">순위</th>
+								<th scope="col">카테고리</th>
+								<th scope="col">상품명</th>
+								<th scope="col" class="nowrap">비율</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="active">
+								<th scope="row" class="nowrap tc">1</th>
+								<th class="nowrap">레저</th>
+								<td class="fw-bold">차귀도 낚시 체험</td>
+								<td>11.05 &#37;</td>
+							</tr>
+							<tr>
+								<th scope="row" class="nowrap tc">2</th>
+								<th class="nowrap">맛집</th>
+								<td class="fw-bold">제주 흑돈가</td>
+								<td>11.05 &#37;</td>
+							</tr>
+							<tr>
+								<th scope="row" class="nowrap tc">3</th>
+								<th class="nowrap">기념품</th>
+								<td class="fw-bold">한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿 한라봉 초콜릿</td>
+								<td>11.05 &#37;</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!--//modal-body-->
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+
+</html>

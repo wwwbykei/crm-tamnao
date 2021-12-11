@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>사회공헌포인트 현황 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body class="page-customer-point">
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>고객 관리</span>
+			<h2>사회공헌포인트 현황</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>기간</dt>
+				<dd>
+					<label class="radio-container" for="periodYesterday">어제
+						<input type="radio" id="periodYesterday" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeek">1주일
+						<input type="radio" id="periodWeek">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodOne">1개월
+						<input type="radio" id="periodOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodThree">3개월
+						<input type="radio" id="periodThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+
+					<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>포인트</dt>
+				<dd>
+					<label class="radio-container" for="pointSave">적립
+						<input type="radio" id="pointSave" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="pointUsed">사용
+						<input type="radio" id="pointUsed">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="pointTotal">누적
+						<input type="radio" id="pointTotal">
+						<span class="checkmark"></span>
+					</label>
+					<input type="number" placeholder="포인트 입력" class="i-point">이상
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>사용자 아이디</dt>
+				<dd>
+					<input type="text" placeholder="아이디 입력" class="i-id">
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<div class="section section-simpleDonut">
+			<h3>유형별 적립 현황</h3>
+			<div class="chart-simpleDonut">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로/세로 180px 고정
+						2. 차트 라인 두께 : 15px
+						3. 색상
+							- 밝은 회색 : #EFEDEC
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/customer-point-category.png">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-brown-gray">
+						<h6>적립 &#40;상품평&#41; : 10&#37;</h6>
+						<span>1,007</span>
+					</li>
+					<li class="chart-label color-yellow-gray">
+						<h6>적립 &#40;상품구매&#41; : 38&#37;</h6>
+						<span>8,000</span>
+					</li>
+					<li class="chart-label color-red">
+						<h6>적립 &#40;회원가입&#41; : 50&#37;</h6>
+						<span>8,000</span>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>사용 &#40;상품구매&#41; : 2&#37;</h6>
+						<span>840</span>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-linechart">
+			<h3>일별 적립 현황</h3>
+			<div class="chart-realtimeLine">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 너비 : 가변 100%
+						2. 높이 : 244px
+						2. 차트 라인 두께 : 2px
+						3. 색상
+							- 중간 회색 : #A59E96
+							- 밝은 빨강 : #E4B9B9
+							- 진한 회색 : #2E2F2E
+							- 삘강 : #DF4F49
+					-->
+					<img src="images/temp-chart/customer-point-daily.png" style="height:244px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-yellow-gray">
+						<h6>적립 &#40;상품평&#41;</h6>
+					</li>
+					<li class="chart-label color-red-light">
+						<h6>적립 &#40;상품구매&#41;</h6>
+					</li>
+					<li class="chart-label color-red">
+						<h6>적립 &#40;회원가입&#41;</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>사용 &#40;상품구매&#41;</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<hr class="gutter-medium">
+
+		<table class="table">
+			<caption>
+				<span>검색 결과 208건</span>
+				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+			</caption>
+			<thead>
+				<tr>
+					<th scope="col" class="nowrap">번호</th>
+					<th scope="col" class="nowrap">카테고리</th>
+					<th scope="col">아이디</th>
+					<th scope="col">이름</th>
+					<th scope="col" class="nowrap">구매 전환 이탈일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" class="nowrap">208</th>
+					<td class="nowrap">숙박</td>
+					<td class="fw-bold">hong</td>
+					<td class="fw-bold">홍길동</td>
+					<td class="nowrap text-999">2021-10-29</td>
+				</tr>
+				<tr>
+					<th scope="row">207</th>
+					<td class="nowrap">숙박</td>
+					<td class="fw-bold">hong</td>
+					<td class="fw-bold">홍길동</td>
+					<td class="nowrap text-999">2021-10-29</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+	<!-- Modal -->
+	<div class="modal fade modal-customer-grade" id="modalCustomerGrade" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">고객 등급 관리</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-filter">
+							<dl class="filter-item">
+								<dt>기존 등급 변경일</dt>
+								<dd>2021-05-01</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>판매 기간</dt>
+								<dd>
+									<label class="radio-container" for="salesPeriodOne">1개월
+										<input type="radio" id="salesPeriodOne" checked="checked">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodThree">3개월
+										<input type="radio" id="salesPeriodThree">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodSix">6개월
+										<input type="radio" id="salesPeriodSix">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodTwelve">12개월
+										<input type="radio" id="salesPeriodTwelve">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodCustom">사용자 설정
+										<input type="radio" id="salesPeriodCustom">
+										<span class="checkmark"></span>
+									</label>
+
+									<!--아래 기간 입력칸은 위 사용자 설정 라디오 버튼을 누른 경우만 노출되게 처리해주세요.-->
+									<div class="form-fromto">
+										<input type="date" value="2021-11-02">
+										<span>&dash;</span>
+										<input type="date" value="2021-12-01">
+									</div>
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>등급 유지 기간</dt>
+								<dd>
+									<select>
+										<option>1개월</option>
+										<option>3개월</option>
+										<option>6개월</option>
+										<option>12개월</option>
+									</select>
+								</dd>
+							</dl>
+						</div><!--//form-filter-->
+
+						<hr class="gutter-small">
+
+						<table class="table table-form">
+							<thead>
+								<tr>
+									<th scope="col">등급</th>
+									<th scope="col">현재 금액</th>
+									<th scope="col">변경 금액</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" class="fw-bold">1등급</th>
+									<td>1,000,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">2등급</th>
+									<td>500,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">3등급</th>
+									<td>300,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">4등급</th>
+									<td>100,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">5등급</th>
+									<td>0원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div><!--//modal-body-->
+				<div class="modal-footer">
+					<p class="color-red">&#8251; 고객 등급 변경은 <span>익월 1일</span>에 재계산되어 반영됩니다.</p>
+					<button type="submit" class="btn-h40 btn-primary" data-bs-dismiss="modal">수정</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+
+</html>

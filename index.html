@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script><!--20211211 : 스크립트 파일 추가-->
+</head>
+
+<body class="page-home">
+
+	<!--20211211 : sidebar.html을 불러오는 방식으로 변경-->
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>Home</span>
+			<h2>대시보드</h2>
+		</div>
+
+		<hr class="gutter-medium">
+
+		<div class="section-total">
+			<i class="material-icons-outlined">functions</i>
+			<h2>총 매출액</h2>
+			<div>
+				<dl class="label-percentage">
+					<dd class="label-green">&uarr; 3.8&#37;</dd>
+					<!--
+						1. 값이 내려간 경우
+							- label-red 클래스 사용
+							- 아래 화살표 사용 : &darr
+						2. 값이 그대로인 경우
+							- label-gray 클래스 사용
+							- 화살표 제거
+					-->
+
+					<dt>작년 동일 기간</dt>
+				</dl>
+				<p class="text-price">
+					<span class="fw-bold">100,202,000</span> 원
+				</p>
+			</div>
+		</div>
+
+		<hr class="gutter-large">
+
+		<div class="section section-monthly">
+			<h3>월별 매출액</h3>
+			<div class="chart-column chart-area">
+				<!--아래 이미지를 chart로 바꿔주세요.
+					1. 크기 : 가로 100% / 세로 267px 고정
+					2. 차트 라인 두께 : 8px
+					3. 차트 라인 위쪽 모서리 둥글게 처리
+					4. 색상
+						- 밝은 회색 : rgba(#2E2F2E,0.2)
+						- 진한 회색 : #2E2F2E
+				-->
+				<img src="images/temp-chart/home-monthly.png">
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-ranking">
+			<h3>매출 순위</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col" class="nowrap tc">순위</th>
+						<th scope="col" class="nowrap">구분</th>
+						<th scope="col" class="nowrap">상품명</th>
+						<th scope="col" class="nowrap tr">매출액</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="active">
+						<th scope="row" class="nowrap tc">1</th>
+						<td class="nowrap">숙박</td>
+						<td class="text-ellipsis">파라다이스 호텔 제주 파라다이스</td>
+						<td class="nowrap tr">53,189,000</td>
+					</tr>
+					<tr>
+						<th scope="row" class="nowrap tc">2</th>
+						<td class="nowrap">소셜&middot;관광지</td>
+						<td class="text-ellipsis">대명리조트</td>
+						<td class="nowrap tr">20,000,000</td>
+					</tr>
+					<tr>
+						<th scope="row" class="nowrap tc">3</th>
+						<td class="nowrap">렌터카</td>
+						<td class="text-ellipsis">카니발</td>
+						<td class="nowrap tr">860,000</td>
+					</tr>
+					<tr>
+						<th scope="row" class="nowrap tc">4</th>
+						<td class="nowrap">소셜&middot;관광지</td>
+						<td class="text-ellipsis">파라다이스 호텔 제주</td>
+						<td class="nowrap tr">20,000,000</td>
+					</tr>
+					<tr>
+						<th scope="row" class="nowrap tc">5</th>
+						<td class="nowrap">소셜&middot;관광지</td>
+						<td class="text-ellipsis">파라다이스 호텔 제주</td>
+						<td class="nowrap tr">400,000</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!--//section-->
+
+		<hr class="gutter-large">
+
+		<div class="section section-weekly">
+			<h3>주간 매출 비교</h3>
+			<div class="chart-column chart-area">
+				<!--아래 이미지를 chart로 바꿔주세요.
+					1. 크기 : 가로 100% / 세로 286px 고정
+					2. 차트 라인 두께 : 8px
+					3. 차트 라인 위쪽 모서리 둥글게 처리
+					4. 색상
+						- 중간 회색 : #A59E96
+						- 삘강 : #DF4F49
+				-->
+				<img src="images/temp-chart/home-weekly.png">
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-location">
+			<h3>매출 지역 분포</h3>
+			<div class="chart-simpleDonut">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로/세로 180px 고정
+						2. 차트 라인 두께 : 15px
+						3. 색상
+							- 밝은 회색 : #EFEDEC
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 밝은 삘강 : #E4B9B9
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/home-location.png">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-brown-gray">
+						<h6>서울 : 10&#37;</h6>
+						<span>85,620,000원</span>
+					</li>
+					<li class="chart-label color-yellow-gray">
+						<h6>경기도 : 10&#37;</h6>
+						<span>85,620,000원</span>
+					</li>
+					<li class="chart-label color-red">
+						<h6>제주도 : 10&#37;</h6>
+						<span>85,620,000원</span>
+					</li>
+					<li class="chart-label color-red-light">
+						<h6>부산 : 10&#37;</h6>
+						<span>85,620,000원</span>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>대구 : 10&#37;</h6>
+						<span>85,620,000원</span>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<hr class="gutter-large">
+
+		<div class="section-status">
+			<div>
+				<h5>
+					<span>총 회원 수</span><br>2021-06-30 13:00
+					<i class="material-icons-outlined">account_circle</i>
+				</h5>
+				<p class="text-price">
+					<span class="fw-bold">5,083</span> 명
+				</p>
+				<dl class="label-percentage">
+					<dd class="label-green">&uarr; 3.8&#37;</dd>
+					<!--
+						1. 값이 내려간 경우
+							- label-red 클래스 사용
+							- 아래 화살표 사용 : &darr
+						2. 값이 그대로인 경우
+							- label-gray 클래스 사용
+							- 화살표 제거
+					-->
+					
+					<dt>전일 대비</dt>
+				</dl>
+			</div>
+			<div>
+				<h5>
+					<span>총 고객 수</span><br>2021-06-30 13:00
+					<i class="material-icons-outlined">groups</i>
+				</h5>
+				<p class="text-price">
+					<span class="fw-bold">5,083</span> 명
+				</p>
+				<dl class="label-percentage">
+					<dd class="label-red">&darr; 3.8&#37;</dd>
+					<dt>전일 대비</dt>
+				</dl>
+			</div>
+			<div>
+				<h5>
+					<span>총 업체 수</span><br>2021-06-30 13:00
+					<i class="material-icons-outlined">business</i>
+				</h5>
+				<p class="text-price">
+					<span class="fw-bold">5,083</span> 명
+				</p>
+				<dl class="label-percentage">
+					<dd class="label-gray">0&#37;</dd>
+					<dt>전일 대비</dt>
+				</dl>
+			</div>
+			<div>
+				<h5>
+					<span>총 승인 업체 수</span><br>2021-06-30 13:00
+					<i class="material-icons-outlined">verified</i>
+				</h5>
+				<p class="text-price">
+					<span class="fw-bold">5,083</span> 명
+				</p>
+				<dl class="label-percentage">
+					<dd class="label-green">&uarr; 3.8&#37;</dd>
+					<dt>전일 대비</dt>
+				</dl>
+			</div>
+		</div><!--//section-->		
+
+	</div><!--//layout-content-->
+
+</body>
+
+</html>

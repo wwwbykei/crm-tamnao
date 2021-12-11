@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>권한 그룹 관리 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>시스템 관리</span>
+			<h2>권한 그룹 관리</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>권한 그룹명</dt>
+				<dd>
+					<select>
+						<option selected>전체</option>
+						<option>시스템 관리자</option>
+						<option></option>
+					</select>
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<form>
+			<table class="table">
+				<caption>
+					<span>검색 결과 208건</span>
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col" class="nowrap">번호</th>
+						<th scope="col" class="nowrap">권한 그룹명</th>
+						<th scope="col">권한 그룹 아이디</th>
+						<th scope="col">설명</th>
+						<th scope="col">관리</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="nowrap">28</th>
+						<td class="nowrap">협회 관리자</td>
+						<td class="fw-bold">admgroup</td>
+						<td>협회에 소속된 관리자</td>
+						<td>
+							<button type="button" data-bs-toggle="modal" data-bs-target="#modalAdminGroup" class="btn-h40 btn-outline">수정</button>
+							<button type="submit" class="btn-h40 btn-outline-red">삭제</button>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5">
+							<a data-bs-toggle="modal" data-bs-target="#modalAdminGroup" class="btn-h40 btn-secondary">등록</a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+	<!-- Modal -->
+	<div class="modal fade modal-admin-group" id="modalAdminGroup" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">권한 그룹 등록</h5>
+
+					<!--수정 버튼을 누른 경우, 타이틀에 '등록 -> 수정'으로 노출
+					<h5 class="modal-title">권한 그룹 수정</h5> -->
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-filter">
+							<dl class="filter-item">
+								<dt>권한 그룹명</dt>
+								<dd>
+									<input type="text" class="width-100">
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>권한 그룹 아이디</dt>
+								<dd>
+									<input type="text" placeholder="영문만 입력해 주세요. 예 : admtamnao" class="width-100">
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>설명</dt>
+								<dd>
+									<input type="text" class="width-100">
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>메뉴별 권한 설정</dt>
+								<dd>
+									<ul class="list-menu">
+										<li class="width-100">
+											<label class="checkbox-container" for="menuDashboard">대시보드 &#40;필수&#41;
+												<input type="checkbox" id="menuDashboard" checked disabled>
+												<span class="checkmark"></span>
+											</label>
+										</li>
+										<li>
+
+											<!--상위 메뉴를 체크하면, 하위 모든 메뉴가 체크되게 처리해 주세요.-->
+											<label class="checkbox-container" for="menuCustomer">고객 관리
+												<input type="checkbox" id="menuCustomer">
+												<span class="checkmark"></span>
+											</label>
+											<div>
+												<label class="checkbox-container" for="menuCustomerCategory">고객 구분 관리
+													<input type="checkbox" id="menuCustomerCategory">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuCustomerLeave">구매전환 이탈 고객 관리
+													<input type="checkbox" id="menuCustomerLeave">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuCustomerRepurchase">재구매 고객 관리
+													<input type="checkbox" id="menuCustomerRepurchase">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuCustomerPoint">사회공헌포인트 현황
+													<input type="checkbox" id="menuCustomerPoint">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+										<li>
+
+											<!--상위 메뉴를 체크하면, 하위 모든 메뉴가 체크되게 처리해 주세요.-->
+											<label class="checkbox-container" for="menuData">외부데이터 분석
+												<input type="checkbox" id="menuData">
+												<span class="checkmark"></span>
+											</label>
+											<div>
+												<label class="checkbox-container" for="menuDataRelation">유동인구와 상품 판매량
+													<input type="checkbox" id="menuDataRelation">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuDataRegionsales">지역별 카드&#47;매출 분석
+													<input type="checkbox" id="menuDataRegionsales">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuDataType">POS&#47;음식점 유형별 분석
+													<input type="checkbox" id="menuDataType">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+										<li>
+
+											<!--상위 메뉴를 체크하면, 하위 모든 메뉴가 체크되게 처리해 주세요.-->
+											<label class="checkbox-container" for="menuReport">리포트
+												<input type="checkbox" id="menuReport">
+												<span class="checkmark"></span>
+											</label>
+											<div>
+												<label class="checkbox-container" for="menuReportRegion">지역별 상품 판매 분포
+													<input type="checkbox" id="menuReportRegion">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuReportPurchase">카테고리&#47;상품별 구매 분포
+													<input type="checkbox" id="menuReportPurchase">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+										<li>
+
+											<!--상위 메뉴를 체크하면, 하위 모든 메뉴가 체크되게 처리해 주세요.-->
+											<label class="checkbox-container" for="menuMarketing">마케팅 관리
+												<input type="checkbox" id="menuMarketing">
+												<span class="checkmark"></span>
+											</label>
+											<div>
+												<label class="checkbox-container" for="menuMarketingVip">우수고객 조회
+													<input type="checkbox" id="menuMarketingVip">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuMarketingPattern">우수고객 구매 패턴 분석
+													<input type="checkbox" id="menuMarketingPattern">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuMarketingRecommend">상품 추천 &#40;문자&#47;이메일&#41;
+													<input type="checkbox" id="menuMarketingRecommend">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+										<li>
+
+											<!--상위 메뉴를 체크하면, 하위 모든 메뉴가 체크되게 처리해 주세요.-->
+											<label class="checkbox-container" for="menuSystem">시스템 관리
+												<input type="checkbox" id="menuSystem">
+												<span class="checkmark"></span>
+											</label>
+											<div>
+												<label class="checkbox-container" for="menuSystemRight">권한 관리
+													<input type="checkbox" id="menuSystemRight">
+													<span class="checkmark"></span>
+												</label>
+												<label class="checkbox-container" for="menuSystemGroup">권한 그룹 관리
+													<input type="checkbox" id="menuSystemGroup">
+													<span class="checkmark"></span>
+												</label>
+											</div>
+										</li>
+									</ul>									
+								</dd>
+							</dl>
+						</div><!--//form-filter-->
+					</form>
+				</div><!--//modal-body-->
+				<div class="modal-footer">
+					<button type="submit" class="btn-h40 btn-primary" data-bs-dismiss="modal">저장</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+</html>

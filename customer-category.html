@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>고객 구분 관리 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>고객 관리</span>
+			<h2>고객 구분 관리</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>고객 구분</dt>
+				<dd>
+					<label class="checkbox-container" for="categoryAll">전체
+						<input type="checkbox" id="categoryAll">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryExist">기존 고객
+						<input type="checkbox" id="categoryExist">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryNew">신규 고객
+						<input type="checkbox" id="categoryNew">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryLatent">잠재 고객
+						<input type="checkbox" id="categoryLatent">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>고객 등급</dt>
+				<dd>
+					<label class="checkbox-container" for="gradeAll">전체
+						<input type="checkbox" id="gradeAll">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeOne">1등급
+						<input type="checkbox" id="gradeOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeTwo">2등급
+						<input type="checkbox" id="gradeTwo">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeThree">3등급
+						<input type="checkbox" id="gradeThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeFour">4등급
+						<input type="checkbox" id="gradeFour">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeFive">5등급
+						<input type="checkbox" id="gradeFive">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>구매 성향</dt>
+				<dd>
+					<label class="checkbox-container" for="typeAll">전체
+						<input type="checkbox" id="typeAll">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="typeTourist">여행객
+						<input type="checkbox" id="typeTourist">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="typeGeneral">일반
+						<input type="checkbox" id="typeGeneral">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<div class="chart-wrap">
+			<ul class="nav nav-tab-vertical">
+				<li class="tab-item">
+					<a data-bs-toggle="tab" href="#tabCategory" class="active">고객 구분</a>
+				</li>
+				<li class="tab-item">
+					<a data-bs-toggle="tab" href="#tabGrade">고객 등급</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="tabCategory" class="tab-pane active">
+					<div class="chart-semiCircleGauge">
+						<div class="chart-area">
+							<!--아래 이미지를 chart로 바꿔주세요.
+								1. 너비 : 120 x 60 px 고정
+								2. 차트 라인 두께 : 15px
+								3. 색상
+									- 삘강 : #DF4F49
+									- 중간 회색 : #A59E96
+									- 밝은 회색 : #EFEDEC
+							-->
+							<img src="images/temp-chart/customer-category.png">
+						</div>
+						<ul class="list-label">
+							<li class="chart-label color-red">
+								<h6>기존 고객 &#58; 50&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-yellow-gray">
+								<h6>신규 고객 &#58; 8&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-brown-gray">
+								<h6>잠재 고객 &#58; 32&#37;</h6>
+								<span>200명</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="tabGrade" class="tab-pane">
+					<div class="chart-semiCircleGauge">
+						<div class="chart-area">
+							<!--아래 이미지를 chart로 바꿔주세요.
+								1. 너비 : 120 x 60 px 고정
+								2. 차트 라인 두께 : 15px
+								3. 색상
+									- 삘강 : #DF4F49
+									- 중간 회색 : #A59E96
+									- 밝은 회색 : #EFEDEC
+							-->
+							<img src="images/temp-chart/customer-category.png">
+						</div>
+						<ul class="list-label">
+							<li class="chart-label color-red">
+								<h6>1등급 &#58; 50&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-yellow-gray">
+								<h6>2등급 &#58; 10&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-brown-gray">
+								<h6>3등급 &#58; 4&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-gray-dark">
+								<h6>4등급 &#58; 16&#37;</h6>
+								<span>200명</span>
+							</li>
+							<li class="chart-label color-red-light">
+								<h6>5등급 &#58; 10&#37;</h6>
+								<span>200명</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--//tab-content-->
+			<div class="button-wrap">
+				<a data-bs-toggle="modal" data-bs-target="#modalCustomerGrade" class="btn-h32 btn-outline">고객 등급 관리</a>
+			</div>
+		</div>
+		<!--//chart-wrap-->
+
+		<hr class="gutter-medium">
+
+		<table class="table">
+			<caption>
+				<span>검색 결과 208건</span>
+				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+			</caption>
+			<thead>
+				<tr>
+					<th scope="col" class="nowrap">번호</th>
+					<th scope="col">아이디</th>
+					<th scope="col">이름</th>
+					<th scope="col" class="nowrap">구분</th>
+					<th scope="col" class="nowrap">구매 등급</th>
+					<th scope="col" class="nowrap">구매 성향</th>
+					<th scope="col" class="nowrap">사회공헌 포인트</th>
+					<th scope="col" class="nowrap">가입일</th>
+					<th scope="col" class="nowrap">최근 구매일</th>
+					<th scope="col" class="nowrap">최근 로그인</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" class="nowrap">208</th>
+					<td class="fw-bold">admin34909jamesdeanpanalopecruze</td>
+					<td class="fw-bold">김수한무햇살보다아름다운</td>
+					<td class="nowrap">기존 고객</td>
+					<td class="nowrap">5등급</td>
+					<td class="nowrap">일반</td>
+					<td class="nowrap">56,000</td>
+					<td class="nowrap text-999">2021-10-29</td>
+					<td class="nowrap text-999">2021-10-29</td>
+					<td class="nowrap text-999">2021-10-29</td>
+				</tr>
+				<tr>
+					<th scope="row">207</th>
+					<td class="fw-bold">admin</td>
+					<td class="fw-bold">홍길동</td>
+					<td class="nowrap">신규 고객</td>
+					<td class="nowrap">5등급</td>
+					<td class="nowrap">일반</td>
+					<td class="nowrap">210</td>
+					<td class="nowrap text-999">2021-10-29</td>
+					<td class="nowrap text-999">2021-10-29</td>
+					<td class="nowrap text-999">2021-10-29</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+	<!-- Modal -->
+	<div class="modal fade modal-customer-grade" id="modalCustomerGrade" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">고객 등급 관리</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-filter">
+							<dl class="filter-item">
+								<dt>기존 등급 변경일</dt>
+								<dd>
+									<p>2021-05-01</p>
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>판매 기간</dt>
+								<dd>
+									<label class="radio-container" for="salesPeriodOne">1개월
+										<input type="radio" id="salesPeriodOne" checked="checked">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodThree">3개월
+										<input type="radio" id="salesPeriodThree">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodSix">6개월
+										<input type="radio" id="salesPeriodSix">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodTwelve">12개월
+										<input type="radio" id="salesPeriodTwelve">
+										<span class="checkmark"></span>
+									</label>
+									<label class="radio-container" for="salesPeriodCustom">사용자 설정
+										<input type="radio" id="salesPeriodCustom">
+										<span class="checkmark"></span>
+									</label>
+
+									<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+										- display:block 으로 변경
+									-->
+									<div class="form-fromto" style="display:none">
+										<input type="date" value="2021-11-02">
+										<span>&dash;</span>
+										<input type="date" value="2021-12-01">
+									</div>
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>등급 유지 기간</dt>
+								<dd>
+									<select>
+										<option>1개월</option>
+										<option>3개월</option>
+										<option>6개월</option>
+										<option>12개월</option>
+									</select>
+								</dd>
+							</dl>
+						</div><!--//form-filter-->
+
+						<hr class="gutter-small">
+
+						<table class="table table-form">
+							<thead>
+								<tr>
+									<th scope="col">등급</th>
+									<th scope="col">현재 금액</th>
+									<th scope="col">변경 금액</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row" class="fw-bold">1등급</th>
+									<td>1,000,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">2등급</th>
+									<td>500,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">3등급</th>
+									<td>300,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">4등급</th>
+									<td>100,000원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+								<tr>
+									<th scope="row" class="fw-bold">5등급</th>
+									<td>0원</td>
+									<td>
+										<input type="number" class="i-price"> 원
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div><!--//modal-body-->
+				<div class="modal-footer">
+					<p class="text-red">&#8251; 고객 등급 변경은 <span>익월 1일</span>에 재계산되어 반영됩니다.</p>
+					<button type="submit" class="btn-h40 btn-primary" data-bs-dismiss="modal">수정</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+
+</html>

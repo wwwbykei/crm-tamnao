@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>POS&#47;음식점 유형별 분석 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body class="page-data-type">
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>외부 데이터 분석</span>
+			<h2>POS&#47;음식점 유형별 분석</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>연도 &#47; 월</dt>
+				<dd>
+					<select>
+						<option>2021년</option>
+						<option>2020년</option>
+						<option>2019년</option>
+						<option></option>
+					</select>
+					<select>
+						<option>전체</option>
+						<option>1월</option>
+						<option>2월</option>
+						<option>3월</option>
+						<option>4월</option>
+						<option>5월</option>
+						<option>6월</option>
+						<option>7월</option>
+						<option>8월</option>
+						<option>9월</option>
+						<option>10월</option>
+						<option>11월</option>
+						<option>12월</option>
+					</select>
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<!--지도 영역
+			1. iframe 자리에 지도 추가
+			2. 지도 높이 : 아래 style 태그에서 수정 가능 
+		-->
+		<div class="map" style="height:400px">
+			<div class="map-wrap">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26614.7668613254!2d126.55154979999999!3d33.5053873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1636163512295!5m2!1sko!2skr" width="100%" height="100%"></iframe>
+			</div>
+		</div>
+
+		<hr class="gutter-large">
+
+		<div class="section section-top10-tamnao">
+			<h3>탐나오 맛집 매출 TOP 10</h3>
+			<div class="chart-column">
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로 100% / 세로 312px 고정
+						2. 차트 라인 두께 : 8px
+						3. 차트 라인 위쪽 모서리 둥글게 처리
+						4. 가장 왼쪽 차트만 빨간색 적용, 나머지는 밝은 빨강
+						5. 색상
+							- 삘강 : #DF4F49
+							- 밝은 삘강 : #E4B9B9
+					-->
+					<img src="images/temp-chart/data-type-tamnao.png" style="height:312px">
+				</div>
+			</div>
+		</div><!--//section-->
+
+		<div class="section section-top10-card">
+			<h3>카드 (POS) 맛집 매출 TOP 10</h3>
+			<div class="chart-column">
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로 100% / 세로 312px 고정
+						2. 차트 라인 두께 : 8px
+						3. 차트 라인 위쪽 모서리 둥글게 처리
+						4. 가장 왼쪽 차트만 짙은 회색 적용, 나머지는 중간 회색
+						5. 색상
+							- 진한 회색 : #2E2F2E
+							- 중간 회색 : #A59E96
+					-->
+					<img src="images/temp-chart/data-type-card.png" style="height:312px">
+				</div>
+			</div>
+		</div><!--//section-->
+
+		<hr class="gutter-large">
+
+		<div class="section section-linechart">
+			<h3>카드 (POS) 음식 업종별 매출</h3>
+			<div class="chart-realtimeLine">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로 100% / 세로 244px 고정
+						2. 차트 라인 두께 : 2px
+						3. 색상
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 밝은 삘강 : #E4B9B9
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/data-type-category.png" style="height:244px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red-light">
+						<h6>한식</h6>
+					</li>
+					<li class="chart-label color-yellow-gray">
+						<h6>중식</h6>
+					</li>
+					<li class="chart-label color-red">
+						<h6>양식</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>일식</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<hr class="gutter-large">
+
+		<div class="section section-linechart">
+			<h3>연령별 메뉴 선호도</h3>
+			<div class="chart-column-horizontal">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 크기 : 가로 100% / 세로 195px 고정
+						2. 차트 라인 두께 : 2px
+						3. 색상
+							- 밝은 회색 : #EFEDEC
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 밝은 삘강 : #E4B9B9
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/data-type-menu.png" style="height:195px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red-light">
+						<h6>한식</h6>
+					</li>
+					<li class="chart-label color-yellow-gray">
+						<h6>중식</h6>
+					</li>
+					<li class="chart-label color-red">
+						<h6>양식</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>일식</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+	</div>
+	<!--//layout-content-->
+
+</body>
+
+</html>

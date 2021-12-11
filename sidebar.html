@@ -1,0 +1,72 @@
+<div class="sidebar-content">
+	<a href="index.html" class="sidebar-header">
+		<img src="images/logo.png" alt="탐나오">
+		<h1><span>고객관계관리</span> 시스템</h1>
+		<span>Customer Relationship Management System</span>
+	</a>
+	<ul class="sidebar-menu">
+		<li>
+			<a href="index.html" class=""><i class="material-icons-outlined">dashboard</i>대시보드</a><!--이 메뉴를 누른 경우, a 태그에 'active' 클래스 추가-->
+		</li>
+		<li>
+			<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCustomer">
+				<i class="material-icons-outlined">groups</i>고객 관리
+			</button>
+			<ul id="collapseCustomer" class="collapse">
+				<li><a href="customer-category.html">고객 구분 관리</a></li><!--이 레벨의 메뉴를 누른 경우, a 태그에 'active' 클래스 추가-->
+				<li><a href="customer-leave.html">구매전환 이탈 고객 관리</a></li>
+				<li><a href="customer-repurchase.html">재구매 고객 관리</a></li>
+				<li><a href="customer-point.html">사회공헌포인트 현황</a></li>
+			</ul>
+		</li>
+		<li>
+			<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseData">
+				<i class="material-icons-outlined">assessment</i>외부데이터 분석
+			</button>
+			<ul id="collapseData" class="collapse">
+				<li><a href="data-relation.html">유동인구와 상품 판매량</a></li>
+				<li><a href="data-regionsales.html">지역별 카드&#47;매출 분석</a></li>
+				<li><a href="data-type.html">POS&#47;음식점 유형별 분석</a></li>
+			</ul>
+		</li>
+		<li>
+			<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport">
+				<i class="material-icons-outlined">history_edu</i>리포트
+			</button>
+			<ul id="collapseReport" class="collapse">
+				<li><a href="report-regionsales.html">지역별 상품 판매 분포</a></li>
+				<li><a href="report-purchase.html">카테고리&#47;상품별 구매 분포</a></li>
+			</ul>
+		</li>
+		<li>
+			<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMarketing">
+				<i class="material-icons-outlined">history_edu</i>마케팅 관리
+			</button>
+			<ul id="collapseMarketing" class="collapse">
+				<li><a href="marketing-vip.html">우수고객 조회</a></li>
+				<li><a href="marketing-pattern.html">우수고객 구매 패턴 분석</a></li>
+				<li><a href="marketing-recommend.html">상품 추천 &#40;문자&#47;이메일&#41;</a></li>
+			</ul>
+		</li>
+		<li>
+			<button class="btn-collapse collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSystem">
+				<i class="material-icons-outlined">settings</i>시스템 관리
+			</button>
+			<ul id="collapseSystem" class="collapse">
+				<li><a href="system-right.html">권한 관리</a></li>
+				<li><a href="system-group.html">권한 그룹 관리</a></li>
+			</ul>
+		</li>
+	</ul>
+</div><!--//sidebar-content-->
+
+<div class="sidebar-account">
+	<a href="">
+		<img src="images/temp-profile.jpg" alt="">
+		<div>
+			<h6>홍길동</h6>
+			<span>리포트 관리자</span>
+		</div>
+	</a>
+	<button type="button"><i class="material-icons-outlined">logout</i></button>
+</div>

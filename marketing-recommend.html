@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<title>상품 추천 &#40;문자&#47;이메일&#41; &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body class="page-marketing-recommend">
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>마케팅 관리</span>
+			<h2>상품 추천 &#40;문자&#47;이메일&#41;</h2>
+		</div>
+
+		<hr class="gutter-medium">
+
+		<form class="form-write">
+			<div class="form-write-section">
+				<h5 class="form-write-title">1. 전송 방법 및 발송 대상자 선택</h5>
+				<div class="form-wrap">
+					<dl class="filter-item">
+						<dt>전송 방식</dt>
+						<dd>
+							<label class="radio-container" for="methodText">문자 메시지
+								<input type="checkbox" id="methodText">
+								<span class="checkmark"></span>
+							</label>
+							<label class="radio-container" for="methodEmail">이메일
+								<input type="checkbox" id="methodEmail">
+								<span class="checkmark"></span>
+							</label>
+						</dd>
+					</dl>
+					<dl class="filter-item">
+						<dt>추천 카테고리</dt>
+						<dd>
+							<div>
+								<select>
+									<option disabled selected>추천 카테고리 선택</option>
+									<option>골프</option>
+									<option>특산품 &#47; 기념품</option>
+									<option></option>
+								</select>
+								<button type="button" class="btn-h40 btn-outline">추가</button>
+							</div>
+							<input type="text" readonly class="i-readonly width-100" value="카테고리 1, 카테고리 2, ....">
+						</dd>
+					</dl>
+					<dl class="filter-item">
+						<dt>발송 대상</dt>
+						<dd>
+							<div>
+								<select>
+									<option disabled selected>발송 대상 선택</option>
+									<option>우수고객</option>
+									<option>일반고객</option>
+									<option>비회원</option>
+									<option></option>
+								</select>
+								<button type="button" class="btn-h40 btn-outline">추가</button>
+							</div>
+							<input type="text" readonly class="i-readonly width-100" value="우수고객, ....">
+						</dd>
+					</dl>
+				</div><!--//form-wrap-->
+			</div><!--//form-write-section-->
+
+			<hr class="gutter-large">
+
+			<div class="form-write-section">
+				<h5 class="form-write-title">2. 발송 내용 등록</h5>
+				<div class="form-wrap">
+					<dl class="filter-item">
+						<dt>제목</dt>
+						<dd>
+							<input type="text" class="width-100">
+						</dd>
+					</dl>
+					<dl class="filter-item">
+						<dt>내용</dt>
+						<dd>
+							<textarea class="width-100" style="max-width:100%;height:240px"></textarea>
+						</dd>
+					</dl>
+				</div><!--//form-wrap-->
+			</div><!--//form-write-section-->
+
+			<div class="form-footer">
+
+				<!--전송 버튼 누르면 alert 노출되게 처리해 주세요.
+					- 내용 : 한 번 전송하면 취소할 수 없습니다. 그대로 전송할까요?
+					- 버튼 : 취소 / 전송
+				-->
+				<button type="submit" class="btn-h40 btn-primary">전송</button>
+			</div>
+		</form><!--//form-->
+
+	</div>
+	<!--//layout-content-->
+
+</body>
+
+</html>
