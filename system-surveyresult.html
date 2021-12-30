@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>설문조사 결과 분석 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>시스템 관리</span>
+			<h2>설문조사 결과 분석</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>기간</dt>
+				<dd>
+					<label class="radio-container" for="periodYesterday">어제
+						<input type="radio" id="periodYesterday" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeek">1주일
+						<input type="radio" id="periodWeek">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodOne">1개월
+						<input type="radio" id="periodOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodThree">3개월
+						<input type="radio" id="periodThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+
+					<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+            <dl class="filter-item">
+				<dt>설문명</dt>
+				<dd>
+					<input type="text" class="width-100">
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+        <table class="table table-hasButton">
+            <caption>
+                <span>검색 결과 208건</span>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="tc">번호</th>
+                    <th scope="col">설문명</th>
+                    <th scope="col">응답수</th>
+                    <th scope="col">등록일</th>
+                    <th scope="col">설문 결과</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="tc">28</th>
+                    <td class="fw-bold">구매 후기 조사</td>
+                    <td>234명</td>
+                    <td>2021-10-10</td>
+                    <td>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalSurveyResult001" class="btn-h32 btn-outline">결과 보기</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+    <!-- Modal -->
+	<div class="modal fade modal-survey-result" id="modalSurveyResult001" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">설문조사 결과</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+                    <div class="selectbox bt-dark">
+                        <select>
+                            <option selected>2021년 이용 만족도 조사</option>
+                            <option></option>
+                        </select>
+                        <button type="button" class="btn-h32 btn-secondary">결과 조회</button>
+                    </div>
+
+                    <hr class="gutter-medium">
+
+					<div class="chart-row-2">
+                        <div class="section">
+                            <h3>성별 응답 비율</h3>
+                            <div class="chart-donut-horizontal">
+                                
+                                <div class="chart-area">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 빨강 : #E4B9B9
+                                            - 삘강 : #DF4F49
+                                    -->
+                                    <img src="images/temp-chart/survey-gender.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-red-light">
+                                        <h6>남자 &#58; 36.6&#37;</h6>
+                                        <span>30건</span>
+                                    </li>
+                                    <li class="chart-label color-red">
+                                        <h6>여자 &#58; 63.4&#37;</h6>
+                                        <span>72건</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                
+                        <div class="section">
+                            <h3>연령별 응답 비율</h3>
+                            <div class="chart-donut-horizontal">
+                                
+                                <div class="chart-area">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 회색 : #EFEDEC
+                                            - 중간 회색 : #A59E96
+                                            - 진한 회색 : #2E2F2E
+                                    -->
+                                    <img src="images/temp-chart/survey-age.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-beige">
+                                        <h6>20대 &#58; 36.6&#37;</h6>
+                                        <span>30건</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>30대 &#58; 63.4&#37;</h6>
+                                        <span>72건</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray">
+                                        <h6>40대 &#58; 63.4&#37;</h6>
+                                        <span>72건</span>
+                                    </li>
+                                    <li class="chart-label color-gray-dark">
+                                        <h6>50대 &#58; 63.4&#37;</h6>
+                                        <span>72건</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                    </div><!--//chart-row-2-->
+
+                    <ul class="list-surveyresult">
+                        <li class="section">
+                            <h3>1. 어느 상품을 선호하나요? <span>&#40;중복 답변&#41;</span></h3>
+                            <div class="chart-horizontal">
+                                
+                                <div class="chart-area">
+
+                                    <!--차트의 왼쪽부터 답변 많은 순으로 노출해 주세요.
+                                        - 가장 많은 답변 1개만 red이고, 나머지는 red-light 입니다.
+                                    -->
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 너비 : 가변 100%
+                                        2. 높이 : 271px
+                                        3. 차트 라인 두께 : 2px
+                                        4. 색상
+                                            - 중간 회색 : #A59E96
+                                            - 밝은 빨강 : #E4B9B9
+                                            - 진한 회색 : #2E2F2E
+                                            - 삘강 : #DF4F49
+                                    -->
+                                    <img src="images/temp-chart/survey-red.png" style="height:271px">
+                                </div>
+                
+                                <ul class="list-label">
+
+                                    <!--답변 많은 순으로 노출해 주세요.
+                                        - 가장 많은 답변 1개만 red이고, 나머지는 red-light 입니다.
+                                    -->
+                                    <li class="chart-label color-red">
+                                        <h6>답변8 &#58; 54.4%</h6>
+                                        <span>200</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변2 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-red-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li><!--//section-->
+                        <li class="section">
+                            <h3>2. 만족도는 어떤가요? <span>&#40;단일 답변&#41;</span></h3>
+                            <div class="chart-horizontal">
+                                
+                                <div class="chart-area">
+
+                                    <!--차트의 왼쪽부터 답변 많은 순으로 노출해 주세요.
+                                        - 가장 많은 답변 1개만 red이고, 나머지는 red-light 입니다.
+                                    -->
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 너비 : 가변 100%
+                                        2. 높이 : 271px
+                                        3. 차트 라인 두께 : 2px
+                                        4. 색상
+                                            - 중간 회색 : #A59E96
+                                            - 밝은 빨강 : #E4B9B9
+                                            - 진한 회색 : #2E2F2E
+                                            - 삘강 : #DF4F49
+                                    -->
+                                    <img src="images/temp-chart/survey-gray.png" style="height:271px">
+                                </div>
+                
+                                <ul class="list-label">
+
+                                    <!--답변 많은 순으로 노출해 주세요.
+                                        - 가장 많은 답변 1개만 red이고, 나머지는 red-light 입니다.
+                                    -->
+                                    <li class="chart-label color-gray-dark">
+                                        <h6>답변8 &#58; 54.4%</h6>
+                                        <span>200</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변2 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>답변 &#58; 10%</h6>
+                                        <span>40</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li><!--//section-->
+                        <li class="section">
+                            <h3>3. 탐나오에 바라는 점 <span>&#40;주관식 질문&#41;</span></h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="tc">번호</th>
+                                        <th scope="col">카테고리</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col">설문 등록일</th>
+                                        <th scope="col">답변</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="tc">1</th>
+                                        <td>숙박</td>
+                                        <td>스탠다드룸</td>
+                                        <td>2021-12-01</td>
+                                        <td>입장권 구매 후 5분 만에 도착해서 오래 안 기다렸어요.입장권 구매 후 5분 만에 도착해서 오래 안 기다렸어요.입장권 구매 후 5분 만에 도착해서 오래 안 기다렸어요.</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="tc">2</th>
+                                        <td>숙박</td>
+                                        <td>스탠다드룸</td>
+                                        <td>2021-12-01</td>
+                                        <td>입장권 구매 후 5분 만에 도착해서 오래 안 기다렸어요.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+
+
+				</div><!--//modal-body-->
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+</html>

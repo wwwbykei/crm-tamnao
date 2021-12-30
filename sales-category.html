@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>지역별 상품 판매 분포 &#58; 고객관계관리 시스템</title>
+	<title>카테고리별 매출 비교 &#58; 고객관계관리 시스템</title>
 	<link rel="stylesheet" href="css/style.css">
 	<!--[if lt IE 9]>
 	<script src="js/IE9.js"></script>
@@ -26,12 +26,12 @@
 	<div class="layout-content">
 
 		<div class="content-title">
-			<span>리포트</span>
-			<h2>지역별 상품 판매 분포</h2>
+			<span>매출 분석</span>
+			<h2>카테고리별 매출 비교</h2>
 		</div>
 
 		<form class="form-filter">
-			<dl class="filter-item">
+            <dl class="filter-item">
 				<dt>카테고리</dt>
 				<dd>
 					<label class="checkbox-container" for="categoryAll">전체
@@ -93,31 +93,31 @@
 				</dd>
 			</dl>
 			<dl class="filter-item">
-				<dt>연도 &#47; 월</dt>
-				<dd>
-					<select>
-						<option>2021년</option>
-						<option>2020년</option>
-						<option>2019년</option>
-						<option></option>
-					</select>
-					<select>
-						<option>전체</option>
-						<option>1월</option>
-						<option>2월</option>
-						<option>3월</option>
-						<option>4월</option>
-						<option>5월</option>
-						<option>6월</option>
-						<option>7월</option>
-						<option>8월</option>
-						<option>9월</option>
-						<option>10월</option>
-						<option>11월</option>
-						<option>12월</option>
-					</select>
-				</dd>
-			</dl>
+                <dt>연도 &#47; 월</dt>
+                <dd>
+                    <select>
+                        <option>2021년</option>
+                        <option>2020년</option>
+                        <option>2019년</option>
+                        <option></option>
+                    </select>
+                    <select>
+                        <option>전체</option>
+                        <option>1월</option>
+                        <option>2월</option>
+                        <option>3월</option>
+                        <option>4월</option>
+                        <option>5월</option>
+                        <option>6월</option>
+                        <option>7월</option>
+                        <option>8월</option>
+                        <option>9월</option>
+                        <option>10월</option>
+                        <option>11월</option>
+                        <option>12월</option>
+                    </select>
+                </dd>
+            </dl>
 			<div class="filter-buttons">
 				<button type="submit" class="btn-h40 btn-primary">검색</button>
 				<button type="button" class="btn-h40 btn-outline">초기화</button>
@@ -127,88 +127,65 @@
 
 		<hr class="gutter-large">
 
-		<!--지도 영역
-			1. iframe 자리에 지도 추가
-			2. 지도 높이 : 아래 style 태그에서 수정 가능 
-		-->
-		<div class="map" style="height:400px">
-			<div class="map-wrap">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26614.7668613254!2d126.55154979999999!3d33.5053873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1636163512295!5m2!1sko!2skr" width="100%" height="100%"></iframe>
-			</div>
-		</div>
+        <div class="chart">
+            
+            <div class="chart-area">
+                <!--아래 이미지를 chart로 바꿔주세요.
+                    1. 너비 : 가변 100%
+                    2. 높이 : 271px
+                    3. 차트 두께 : 
+                        - 라인 : 2px
+                        - 막대 : 20px
+                    4. 색상
+                        - 삘강 : #DF4F49
+                        - 밝은 회색 : #EFEDEC
+                -->
+                <img src="images/temp-chart/sales-category.png" style="height:271px">
+            </div>
+
+            <ul class="list-label">
+                <li class="chart-label color-red">
+                    <h6>선택 기간 매출</h6>
+                </li>
+                <li class="chart-label color-beige">
+                    <h6>전년 동일 기간 매출</h6>
+                </li>
+            </ul>
+        </div><!--//chart-->
 
 		<hr class="gutter-medium">
 
-		<table class="table">
-			<caption>
-				<span>검색 결과 208건</span>
-				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
-			</caption>
-			<thead>
-				<tr>
-					<th scope="col" rowspan="2" class="nowrap">번호</th>
-					<th scope="col" colspan="2" class="nowrap">지역</th>
-					<th scope="col" rowspan="2" class="nowrap">카테고리</th>
-					<th scope="col" rowspan="2">업체명</th>
-					<th scope="col" rowspan="2" class="nowrap">판매수</th>
-					<th scope="col" rowspan="2" class="nowrap">판매 금액</th>
-				</tr>
-				<tr>
-					<th scope="col" class="nowrap">시군구</th>
-					<th scope="col" class="nowrap">읍면동</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row" class="nowrap">208</th>
-					<td rowspan="3" class="nowrap">제주시</td>
-					<td rowspan="3" class="nowrap">노형동</td>
-					<td class="nowrap">렌터카</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">207</th>
-					<td class="nowrap">맛집</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">206</th>
-					<td class="nowrap">숙박</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-			</tbody>
-			<tbody>
-				<tr>
-					<th scope="row" class="nowrap">208</th>
-					<td rowspan="3" class="nowrap">제주시</td>
-					<td rowspan="3" class="nowrap">노형동</td>
-					<td class="nowrap">렌터카</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">207</th>
-					<td class="nowrap">맛집</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">206</th>
-					<td class="nowrap">숙박</td>
-					<td>제주 제일 갈치조림</td>
-					<td class="nowrap">23</td>
-					<td class="nowrap">50,000,000원</td>
-				</tr>
-			</tbody>
-		</table>
+        <table class="table">
+            <caption>
+                <span>검색 결과 208건</span>
+                <button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="tc">번호</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">전년 동일 기간 매출</th>
+                    <th scope="col">증감량</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="tc">28</th>
+                    <td class="fw-bold">숙박</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr text-green">&#9650; 10,650,000</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="tc">28</th>
+                    <td class="fw-bold">숙박</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr text-red">&#9660; 35,650,000</td>
+                </tr>
+            </tbody>
+        </table>
 
 		<div class="pagination">
 			<ul>
@@ -235,5 +212,4 @@
 	<!--//layout-content-->
 
 </body>
-
 </html>

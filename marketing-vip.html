@@ -6,8 +6,6 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
 
 	<title>우수고객 조회 &#58; 고객관계관리 시스템</title>
 	<link rel="stylesheet" href="css/style.css">
@@ -68,43 +66,45 @@
 
 		<hr class="gutter-large">
 
-		<table class="table">
-			<caption>
-				<span>검색 결과 208건</span>
-				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
-			</caption>
-			<thead>
-				<tr>
-					<th scope="col" class="nowrap">순위</th>
-					<th scope="col" class="nowrap">카테고리</th>
-					<th scope="col">고객명</th>
-					<th scope="col" class="nowrap">구매 횟수</th>
-					<th scope="col" class="nowrap">구매 금액</th>
-					<th scope="col" class="nowrap">선정 여부</th>
-					<th scope="col" class="nowrap">선정 관리</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row" class="nowrap">1</th>
-					<td class="nowrap">골프</td>
-					<td class="fw-bold">honggd &#40;홍길동&#41;</td>
-					<td class="nowrap">20</td>
-					<td class="nowrap">4,000,500원</td>
-					<td class="nowrap"></td>
-					<td><button type="button" class="btn-h40 btn-secondary">선정</button></td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">2</th>
-					<td class="nowrap">맛집</td>
-					<td class="fw-bold">administratortest202114010 &#40;홍길동&#41;</td>
-					<td class="nowrap">16</td>
-					<td class="nowrap">500,000원</td>
-					<td class="nowrap">선정</td>
-					<td><button type="button" class="btn-h40 btn-outline">선정 취소</button></td>
-				</tr>
-			</tbody>
-		</table>
+		<form>
+            <table class="table table-hasButton">
+                <caption>
+                    <span>검색 결과 208건</span>
+                    <button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="nowrap">순위</th>
+                        <th scope="col" class="nowrap">카테고리</th>
+                        <th scope="col">고객명</th>
+                        <th scope="col" class="nowrap">구매 횟수</th>
+                        <th scope="col" class="nowrap">구매 금액</th>
+                        <th scope="col" class="nowrap">선정 여부</th>
+                        <th scope="col" class="nowrap">선정 관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="nowrap">1</th>
+                        <td class="nowrap">골프</td>
+                        <td class="fw-bold">honggd &#40;홍길동&#41;</td>
+                        <td class="nowrap">20</td>
+                        <td class="nowrap">4,000,500원</td>
+                        <td class="nowrap"></td>
+                        <td><button type="button" class="btn-h32 btn-secondary">선정</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="nowrap">2</th>
+                        <td class="nowrap">맛집</td>
+                        <td class="fw-bold">administratortest202114010 &#40;홍길동&#41;</td>
+                        <td class="nowrap">16</td>
+                        <td class="nowrap">500,000원</td>
+                        <td class="nowrap">선정</td>
+                        <td><button type="button" class="btn-h32 btn-outline">선정 취소</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
 
 		<div class="pagination">
 			<ul>

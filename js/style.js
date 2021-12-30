@@ -18,6 +18,13 @@ function navActive(){
     });
 }
 
+function btnTag(){
+    $( ".btn-tag" ).click( function(){
+        $(this).toggleClass("active");
+    });
+}
+
 $( document ).ready( function(){
 	loadNav();
+    btnTag();
 });

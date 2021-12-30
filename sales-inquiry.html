@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>상품별 문의 내역 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>매출 분석</span>
+			<h2>상품별 문의 내역</h2>
+		</div>
+
+		<form class="form-filter">
+            <dl class="filter-item">
+				<dt>카테고리</dt>
+				<dd>
+					<label class="checkbox-container" for="categoryAll">전체
+						<input type="checkbox" id="categoryAll" checked>
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryGolf">골프
+						<input type="checkbox" id="categoryGolf">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySouvenir">기념품
+						<input type="checkbox" id="categorySouvenir">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryRentcar">렌터카
+						<input type="checkbox" id="categoryRentcar">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
+						<input type="checkbox" id="categorySocialSpot">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
+						<input type="checkbox" id="categorySocialLeisure">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
+						<input type="checkbox" id="categorySocialRestaurant">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
+						<input type="checkbox" id="categorySocialBeauty">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
+						<input type="checkbox" id="categorySocialAgency">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
+						<input type="checkbox" id="categorySocialActivity">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
+						<input type="checkbox" id="categorySocialSeat">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryHotel">숙박
+						<input type="checkbox" id="categoryHotel">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryProduct">특산품
+						<input type="checkbox" id="categoryProduct">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryAir">항공
+						<input type="checkbox" id="categoryAir">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+                <dt>연도 &#47; 월</dt>
+                <dd>
+                    <select>
+                        <option>2021년</option>
+                        <option>2020년</option>
+                        <option>2019년</option>
+                        <option></option>
+                    </select>
+                    <select>
+                        <option>전체</option>
+                        <option>1월</option>
+                        <option>2월</option>
+                        <option>3월</option>
+                        <option>4월</option>
+                        <option>5월</option>
+                        <option>6월</option>
+                        <option>7월</option>
+                        <option>8월</option>
+                        <option>9월</option>
+                        <option>10월</option>
+                        <option>11월</option>
+                        <option>12월</option>
+                    </select>
+                </dd>
+            </dl>
+            <div class="filter-row">
+                <dl class="filter-item">
+                    <dt>업체명</dt>
+                    <dd>
+                        <input type="text" class="width-100">
+                    </dd>
+                </dl>
+                <dl class="filter-item">
+                    <dt>상품명</dt>
+                    <dd>
+                        <input type="text" class="width-100">
+                    </dd>
+                </dl>
+            </div>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+        <table class="table">
+            <caption>
+                <span>검색 결과 208건</span>
+                <button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+            </caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="tc">번호</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">업체명</th>
+                    <th scope="col">상품명</th>
+                    <th scope="col">예약 &#40;판매수&#41;</th>
+                    <th scope="col">취소</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">평점</th>
+                    <th scope="col">이용후기</th>
+                    <th scope="col">1&#58;1 문의</th>
+                    <th scope="col">SNS 공유</th>
+                    <th scope="col">조회</th>
+                    <th scope="col">재구매</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="tc">1</th>
+                    <td>숙박</td>
+                    <td>파라다이스 호텔</td>
+                    <td class="fw-bold">스탠다드룸</td>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr">2.2</td>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">1</td>
+                    <td class="tr">2,050</td>
+                    <td class="tr">10</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="tc">2</th>
+                    <td>숙박</td>
+                    <td>파라다이스 호텔</td>
+                    <td class="fw-bold">스탠다드룸</td>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr">2.2</td>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">1</td>
+                    <td class="tr">2,050</td>
+                    <td class="tr">10</td>
+                </tr>
+                <tr class="border-double"><!--마지막 줄 tr에 border-double 클래스를 넣어주세요.-->
+                    <th scope="row" colspan="4" class="tc fw-bold">합계</th>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">40,000,000</td>
+                    <td class="tr">2.2</td>
+                    <td class="tr">10</td>
+                    <td class="tr">10</td>
+                    <td class="tr">1</td>
+                    <td class="tr">2,050</td>
+                    <td class="tr">10</td>
+                </tr>
+            </tbody>
+        </table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+</body>
+</html>

@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>우수고객 구매 패턴 분석 &#58; 고객관계관리 시스템</title>
+	<title>사용자 정의 통계 &#58; 고객관계관리 시스템</title>
 	<link rel="stylesheet" href="css/style.css">
 	<!--[if lt IE 9]>
 	<script src="js/IE9.js"></script>
@@ -26,12 +26,12 @@
 	<div class="layout-content">
 
 		<div class="content-title">
-			<span>마케팅 관리</span>
-			<h2>우수고객 구매 패턴 분석</h2>
+			<span>매출 분석</span>
+			<h2>사용자 정의 통계</h2>
 		</div>
 
 		<form class="form-filter">
-			<dl class="filter-item">
+            <dl class="filter-item">
 				<dt>카테고리</dt>
 				<dd>
 					<label class="checkbox-container" for="categoryAll">전체
@@ -92,10 +92,64 @@
 					</label>
 				</dd>
 			</dl>
-			<dl class="filter-item">
-				<dt>고객명</dt>
+            <dl class="filter-item">
+				<dt>기간</dt>
 				<dd>
-					<input type="text" placeholder="고객명 입력">
+					<label class="radio-container" for="periodYesterday">어제
+						<input type="radio" id="periodYesterday" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeek">1주일
+						<input type="radio" id="periodWeek">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodOne">1개월
+						<input type="radio" id="periodOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodThree">3개월
+						<input type="radio" id="periodThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+
+					<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>고객 &#47; 업체</dt>
+				<dd>
+                    <label class="checkbox-container" for="customerStatus">고객 현황
+						<input type="checkbox" id="customerStatus">
+						<span class="checkmark"></span>
+					</label>
+                    <label class="checkbox-container" for="customerPartner">업체 현황
+						<input type="checkbox" id="customerPartner">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>상품별 통계 정보</dt>
+				<dd>
+					<label class="checkbox-container" for="productSales">매출 현황
+						<input type="checkbox" id="productSales">
+						<span class="checkmark"></span>
+					</label>
+                    <label class="checkbox-container" for="productSalesCancel">매출 취소 현황
+						<input type="checkbox" id="productSalesCancel">
+						<span class="checkmark"></span>
+					</label>
 				</dd>
 			</dl>
 			<div class="filter-buttons">
@@ -107,71 +161,40 @@
 
 		<hr class="gutter-large">
 
-		<table class="table">
-			<caption>
-				<span>검색 결과 208건</span>
-				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
-			</caption>
-			<thead>
-				<tr>
-					<th scope="col" class="nowrap">순위</th>
-					<th scope="col">고객명</th>
-					<th scope="col" class="nowrap">총 구매 횟수</th>
-					<th scope="col" class="nowrap">총 구매 금액</th>
-					<th scope="col" class="nowrap">구매 구분</th>
-					<th scope="col" class="nowrap">카테고리</th>
-					<th scope="col">상품명</th>
-					<th scope="col" class="nowrap">구매 금액</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row" class="nowrap">1</th>
-					<td class="fw-bold">honggd &#40;홍길동&#41;</td>
-					<td class="nowrap">20</td>
-					<td class="nowrap">4,000,500원</td>
-					<td class="nowrap">구매</td>
-					<td class="nowrap">골프</td>
-					<td>B 리조트 성수기 3박</td>
-					<td class="nowrap">250,000원</td>
-				</tr>
-				<tr>
-					<th scope="row" class="nowrap">2</th>
-					<td class="fw-bold">honggd &#40;홍길동&#41;</td>
-					<td class="nowrap">16</td>
-					<td class="nowrap">1,000,500원</td>
-					<td class="nowrap">관심 상품</td>
-					<td class="nowrap">골프</td>
-					<td>B 리조트 성수기 3박</td>
-					<td class="nowrap">250,000원</td>
-				</tr>
-			</tbody>
-		</table>
+        <div class="chart">
+            
+            <div class="chart-area">
+                <!--아래 이미지를 chart로 바꿔주세요.
+                    1. 너비 : 가변 100%
+                    2. 높이 : 295px
+                    3. 차트 라인 두께 : 2px
+                    4. 색상
+                        - 밝은 빨강 : #E4B9B9
+                        - 중간 회색 : #A59E96
+                        - 삘강 : #DF4F49
+                        - 진한 회색 : #2E2F2E
+                -->
+                <img src="images/temp-chart/customer-point-daily.png" style="height:295px">
+            </div>
 
-		<div class="pagination">
-			<ul>
-				<!--이전 페이지가 존재하는 경우만 노출
-				<li><a href=""><i>first_page</i></a></li>
-				<li><a href=""><i>chevron_left</i></a></li>
-				-->
-				<li><a href="" class="active">1</a></li>
-				<li><a href="">2</a></li>
-				<li><a href="">3</a></li>
-				<li><a href="">4</a></li>
-				<li><a href="">5</a></li>
-				<li><a href="">6</a></li>
-				<li><a href="">7</a></li>
-				<li><a href="">8</a></li>
-				<li><a href="">9</a></li>
-				<li><a href="">10</a></li>
-				<li><a href=""><i>chevron_right</i></a></li>
-				<li><a href=""><i>last_page</i></a></li>
-			</ul>
-		</div><!--//pagination-->
+            <ul class="list-label">
+                <li class="chart-label color-red-light">
+                    <h6>고객 현황</h6>
+                </li>
+                <li class="chart-label color-brown-gray">
+                    <h6>업체 현황</h6>
+                </li>
+                <li class="chart-label color-red">
+                    <h6>매출 현황</h6>
+                </li>
+                <li class="chart-label color-gray-dark">
+                    <h6>매출 취소 현황</h6>
+                </li>
+            </ul>
+        </div><!--//chart-->
 
 	</div>
 	<!--//layout-content-->
 
 </body>
-
 </html>

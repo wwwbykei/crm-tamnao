@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>상품 매출 증감량 분석 &#58; 고객관계관리 시스템</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/style.js"></script>
+</head>
+
+<body>
+
+    <div class="layout-sidebar"></div>
+
+    <div class="layout-content">
+
+        <div class="content-title">
+            <span>매출 분석</span>
+            <h2>상품 매출 증감량 분석</h2>
+        </div>
+
+        <form class="form-filter">
+            <dl class="filter-item">
+                <dt>카테고리</dt>
+                <dd>
+                    <label class="checkbox-container" for="categoryAll">전체
+                        <input type="checkbox" id="categoryAll" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categoryGolf">골프
+                        <input type="checkbox" id="categoryGolf">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySouvenir">기념품
+                        <input type="checkbox" id="categorySouvenir">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categoryRentcar">렌터카
+                        <input type="checkbox" id="categoryRentcar">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
+                        <input type="checkbox" id="categorySocialSpot">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
+                        <input type="checkbox" id="categorySocialLeisure">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
+                        <input type="checkbox" id="categorySocialRestaurant">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
+                        <input type="checkbox" id="categorySocialBeauty">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
+                        <input type="checkbox" id="categorySocialAgency">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
+                        <input type="checkbox" id="categorySocialActivity">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
+                        <input type="checkbox" id="categorySocialSeat">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categoryHotel">숙박
+                        <input type="checkbox" id="categoryHotel">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categoryProduct">특산품
+                        <input type="checkbox" id="categoryProduct">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="checkbox-container" for="categoryAir">항공
+                        <input type="checkbox" id="categoryAir">
+                        <span class="checkmark"></span>
+                    </label>
+                </dd>
+            </dl>
+            <dl class="filter-item">
+                <dt>기간</dt>
+                <dd>
+                    <label class="radio-container" for="periodYesterday">어제
+                        <input type="radio" id="periodYesterday" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container" for="periodWeek">1주일
+                        <input type="radio" id="periodWeek">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container" for="periodOne">1개월
+                        <input type="radio" id="periodOne">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container" for="periodThree">3개월
+                        <input type="radio" id="periodThree">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container" for="periodCustom">사용자 설정
+                        <input type="radio" id="periodCustom">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+                    <div class="form-fromto" style="display:none">
+                        <input type="date" value="2021-11-02">
+                        <span>&dash;</span>
+                        <input type="date" value="2021-12-01">
+                    </div>
+                </dd>
+            </dl>
+            <div class="filter-row">
+                <dl class="filter-item">
+                    <dt>업체명</dt>
+                    <dd>
+                        <input type="text" class="width-100">
+                    </dd>
+                </dl>
+                <dl class="filter-item">
+                    <dt>상품명</dt>
+                    <dd>
+                        <input type="text" class="width-100">
+                    </dd>
+                </dl>
+            </div>
+            <div class="filter-buttons">
+                <button type="submit" class="btn-h40 btn-primary">검색</button>
+                <button type="button" class="btn-h40 btn-outline">초기화</button>
+            </div>
+        </form>
+        <!--//form-filter-->
+
+        <hr class="gutter-large">
+
+        <div class="chart">
+            <div class="chart-area">
+                <!--아래 이미지를 chart로 바꿔주세요.
+                    1. 크기 : 가로 100% / 세로 271px 고정
+                    2. 차트 라인 두께 : 8px
+                    3. 차트 라인 위쪽 모서리 둥글게 처리
+                    4. 색상
+                        - 삘강 : #DF4F49
+                        - 밝은 회색 : #D2CECA
+                        - 중간 회색 : #A59E96
+                -->
+                <img src="images/temp-chart/sales-status.png" style="height:271px">
+            </div>
+            <ul class="list-label">
+                <li class="chart-label color-red">
+                    <h6>선택 기간 매출</h6>
+                </li>
+                <li class="chart-label color-brown-gray-light">
+                    <h6>전월 매출</h6>
+                </li>
+                <li class="chart-label color-brown-gray">
+                    <h6>전년 동일 기간 매출</h6>
+                </li>
+            </ul>
+        </div><!--//chart-->
+
+        <hr class="gutter-medium">
+
+        <form>
+            <table class="table">
+                <caption>
+                    <span>검색 결과 208건</span>
+                    <button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+                </caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="tc">번호</th>
+                        <th scope="col">카테고리</th>
+                        <th scope="col">업체명</th>
+                        <th scope="col">상품명</th>
+                        <th scope="col">선택 기간 매출</th>
+                        <th scope="col">전월 매출</th>
+                        <th scope="col">전년 동일 기간 매출</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="tc">28</th>
+                        <td>숙박</td>
+                        <td>업체명</td>
+                        <td class="fw-bold">스탠다드룸</td>
+                        <td class="tr fw-bold">40,000,000</td>
+                        <td class="tr">40,000,000</td>
+                        <td class="tr">40,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <div class="pagination">
+            <ul>
+                <!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+                <li><a href="" class="active">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">5</a></li>
+                <li><a href="">6</a></li>
+                <li><a href="">7</a></li>
+                <li><a href="">8</a></li>
+                <li><a href="">9</a></li>
+                <li><a href="">10</a></li>
+                <li><a href=""><i>chevron_right</i></a></li>
+                <li><a href=""><i>last_page</i></a></li>
+            </ul>
+        </div>
+        <!--//pagination-->
+
+    </div>
+    <!--//layout-content-->
+
+</body>
+
+</html>

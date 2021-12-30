@@ -6,8 +6,6 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
 
 	<title>상품 추천 &#40;문자&#47;이메일&#41; &#58; 고객관계관리 시스템</title>
 	<link rel="stylesheet" href="css/style.css">
@@ -54,32 +52,83 @@
 					<dl class="filter-item">
 						<dt>추천 카테고리</dt>
 						<dd>
-							<div>
-								<select>
-									<option disabled selected>추천 카테고리 선택</option>
-									<option>골프</option>
-									<option>특산품 &#47; 기념품</option>
-									<option></option>
-								</select>
-								<button type="button" class="btn-h40 btn-outline">추가</button>
-							</div>
-							<input type="text" readonly class="i-readonly width-100" value="카테고리 1, 카테고리 2, ....">
+                            <label class="checkbox-container" for="categoryAll">전체
+                                <input type="checkbox" id="categoryAll">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categoryGolf">골프
+                                <input type="checkbox" id="categoryGolf">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySouvenir">기념품
+                                <input type="checkbox" id="categorySouvenir">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categoryRentcar">렌터카
+                                <input type="checkbox" id="categoryRentcar">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
+                                <input type="checkbox" id="categorySocialSpot">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
+                                <input type="checkbox" id="categorySocialLeisure">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
+                                <input type="checkbox" id="categorySocialRestaurant">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
+                                <input type="checkbox" id="categorySocialBeauty">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
+                                <input type="checkbox" id="categorySocialAgency">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
+                                <input type="checkbox" id="categorySocialActivity">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
+                                <input type="checkbox" id="categorySocialSeat">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categoryHotel">숙박
+                                <input type="checkbox" id="categoryHotel">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categoryProduct">특산품
+                                <input type="checkbox" id="categoryProduct">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="categoryAir">항공
+                                <input type="checkbox" id="categoryAir">
+                                <span class="checkmark"></span>
+                            </label>
 						</dd>
 					</dl>
 					<dl class="filter-item">
 						<dt>발송 대상</dt>
 						<dd>
-							<div>
-								<select>
-									<option disabled selected>발송 대상 선택</option>
-									<option>우수고객</option>
-									<option>일반고객</option>
-									<option>비회원</option>
-									<option></option>
-								</select>
-								<button type="button" class="btn-h40 btn-outline">추가</button>
-							</div>
-							<input type="text" readonly class="i-readonly width-100" value="우수고객, ....">
+                            <label class="checkbox-container" for="targetAll">전체
+                                <input type="checkbox" id="targetAll">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="targetVip">우수고객
+                                <input type="checkbox" id="targetVip">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="targetNormal">일반고객
+                                <input type="checkbox" id="targetNormal">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="checkbox-container" for="targetNonmember">비회원
+                                <input type="checkbox" id="targetNonmember">
+                                <span class="checkmark"></span>
+                            </label>
 						</dd>
 					</dl>
 				</div><!--//form-wrap-->
@@ -99,7 +148,7 @@
 					<dl class="filter-item">
 						<dt>내용</dt>
 						<dd>
-							<textarea class="width-100" style="max-width:100%;height:240px"></textarea>
+							<textarea class="width-100" style="height:240px"></textarea>
 						</dd>
 					</dl>
 				</div><!--//form-wrap-->

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>설문조사 관리 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>시스템 관리</span>
+			<h2>설문조사 관리</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>기간</dt>
+				<dd>
+					<label class="radio-container" for="periodYesterday">어제
+						<input type="radio" id="periodYesterday" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeek">1주일
+						<input type="radio" id="periodWeek">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodOne">1개월
+						<input type="radio" id="periodOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodThree">3개월
+						<input type="radio" id="periodThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+
+					<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+            <dl class="filter-item">
+				<dt>설문명</dt>
+				<dd>
+					<input type="text" class="width-100">
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+		<form>
+			<table class="table table-hasButton">
+				<caption>
+					<span>검색 결과 208건</span>
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col" class="tc">번호</th>
+						<th scope="col">설문명</th>
+						<th scope="col">등록일</th>
+						<th scope="col">등록자</th>
+						<th scope="col">관리</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row" class="tc">28</th>
+						<td class="fw-bold">구매 후기 조사</td>
+						<td>2021-10-10</td>
+						<td>test &#40;설문 관리자&#41;</td>
+						<td>
+							<button type="button" data-bs-toggle="modal" data-bs-target="#modalSurvey001" class="btn-h32 btn-outline">수정</button>
+							<button type="submit" class="btn-h32 btn-outline-red">삭제</button>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="5">
+							<a data-bs-toggle="modal" data-bs-target="#modalSurvey" class="btn-h40 btn-secondary">등록</a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</form>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+	<!-- Modal -->
+	<div class="modal fade modal-survey" id="modalSurvey001" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">설문조사 등록</h5>
+
+					<!--수정 버튼을 누른 경우, 타이틀에 '등록 -> 수정'으로 노출
+					<h5 class="modal-title">설문조사 수정</h5> -->
+
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-filter">
+							<dl class="filter-item">
+								<dt>설문 제목</dt>
+								<dd>
+									<input type="text" class="width-100">
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>설문 내용</dt>
+								<dd>
+									<textarea class="width-100" style="height:120px"></textarea>
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>질문 불러오기</dt>
+								<dd>
+									<select>
+                                        <option disabled selected>선택</option>
+                                        <option>2021년 고객 만족도 조사</option>
+                                    </select>
+								</dd>
+							</dl>
+							<dl class="filter-item">
+								<dt>질문</dt>
+								<dd>
+									<div class="btn-group">
+                                        <button type="button" class="btn-h32 btn-primary"><i class="material-icons-outlined">add</i> 객관식 질문</button>
+									    <button type="button" class="btn-h32 btn-secondary"><i class="material-icons-outlined">add</i> 주관식 질문</button>
+                                    </div>
+
+
+
+                                    <!--입력폼
+                                        - 바로 위의 질문 버튼을 누르면 노출되게 처리해 주세요.
+                                        - 페이지 진입 시에는 노출 안함
+                                    -->
+                                    <div class="form-survey">
+                                        <div class="wrap">
+                                            
+
+                                            <!--객관식 질문-->
+                                            <div class="form-item">
+                                                <select>
+                                                    <option>중복 답변</option>
+                                                    <option>단일 답변</option>
+                                                </select>
+                                                <input type="text" placeholder="질문 입력">
+                                                <div class="form-answer">
+                                                    
+                                                    <!--답변 2개는 필수이므로, 기본 노출
+                                                        - 삭제 버튼 없음
+                                                    -->
+                                                    <input type="text" placeholder="답변 입력">
+                                                    <input type="text" placeholder="답변 입력">
+                                                    
+                                                    <!--아래 답변 추가 버튼을 누르면 노출되게 처리해 주세요.
+                                                        - 아래 답변 추가 버튼을 누르기 전에는 노출 안되게 처리해 주세요.
+                                                    -->
+                                                    <div class="answer-item">
+                                                        <input type="text" placeholder="답변 입력">
+                                                        <button type="button" class="material-icons-outlined text-red">close</button>
+                                                    </div>
+                                                    <button type="button" class="btn-h32 btn-outline"><i class="material-icons-outlined">add</i> 답변</button>
+                                                </div>
+                                            </div>
+
+
+                                            <!--주관식 질문-->
+                                            <div class="form-item">
+                                                <input type="text" placeholder="질문 입력">
+                                            </div>
+                                        </div><!--//wrap-->
+                                        <div class="btn-group">
+
+                                            <!--저장, 삭제 버튼을 누르면,
+                                                - 이 영역 (form-survey)는 안 보이게 처리해 주세요.
+                                                - 위에 있는 '+ 객관식 질문, + 주관식 질문' 버튼을 눌렀을 때만 노출
+                                            -->
+                                            <button type="submit" class="btn-h32 btn-secondary">저장</button>
+                                            <button type="button" class="btn-h32 btn-outline">삭제</button>
+                                        </div>
+                                    </div><!--//form-survey-->
+
+
+
+                                    <!--저장한 질문 목록
+                                        - 없으면 노출 안되게 처리해 주세요.
+                                    -->
+                                    <ul class="list-survey">
+                                        <li class="list-item">
+
+                                            <!--순서 조정 버튼-->
+                                            <div class="wrap">
+                                                <button type="button" class="material-icons-outlined text-999">menu</button>
+                                                <div class="text">
+                                                    <span>중복 답변</span>
+                                                    <h5>어느 상품을 선호하나요?어느 상품을 선호하나요?어느 상품을 선호하나요?어느 상품을 선호하나요?어느 상품을 선호하나요?어느 상품을 선호하나요?</h5>
+                                                    <p>답변 &#58; 렌터카, 숙박, 관광/레저, 특산품/기념품, 맛집</p>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button type="button" class="material-icons-outlined">edit</button>
+                                                    <button type="button" class="material-icons-outlined text-red">close</button>
+                                                </div>
+                                            </div>
+
+
+                                            <!--입력된 목록에서 edit 버튼을 누르면
+                                                - 아래 입력폼으로 변경되게 처리해 주세요.
+                                            -->
+                                            <div class="form-survey" style="display:none">
+                                                <div class="wrap">
+                                                    <div class="form-item">
+                                                        <select>
+                                                            <option selected>중복 답변</option>
+                                                            <option>단일 답변</option>
+                                                        </select>
+                                                        <input type="text" placeholder="질문 입력" value="어느 상품을 선호하나요?">
+                                                        <div class="form-answer">
+                                                            <input type="text" placeholder="답변 입력" value="렌터카">
+                                                            <input type="text" placeholder="답변 입력" value="숙박">
+                                                            <div class="answer-item">
+                                                                <input type="text" placeholder="답변 입력" value="관광/레저">
+                                                                <button type="button" class="material-icons-outlined text-red">close</button>
+                                                            </div>
+                                                            <div class="answer-item">
+                                                                <input type="text" placeholder="답변 입력" value="맛집">
+                                                                <button type="button" class="material-icons-outlined text-red">close</button>
+                                                            </div>
+                                                            <button type="button" class="btn-h32 btn-outline"><i class="material-icons-outlined">add</i> 답변</button>
+                                                        </div>
+                                                    </div>
+                                                </div><!--//wrap-->
+                                                <div class="btn-group">
+                                                    <button type="submit" class="btn-h32 btn-secondary">저장</button>
+                                                    <button type="button" class="btn-h32 btn-outline">삭제</button>
+                                                </div>
+                                            </div><!--//form-survey-->
+
+
+
+                                        </li>
+                                        <li class="list-item">
+                                            <div class="wrap">
+                                                <button type="button" class="material-icons-outlined text-999">menu</button>
+                                                <div class="text">
+                                                    <h5>탐나오에 바라는 점을 적어주세요.</h5>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button type="button" class="material-icons-outlined">edit</button>
+                                                    <button type="button" class="material-icons-outlined text-red">close</button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+								</dd>
+							</dl>
+						</div><!--//form-filter-->
+					</form>
+				</div><!--//modal-body-->
+				<div class="modal-footer">
+					<button type="submit" class="btn-h40 btn-primary" data-bs-dismiss="modal">등록</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+</html>

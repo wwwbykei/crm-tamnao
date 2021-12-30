@@ -6,8 +6,6 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
 
 	<title>고객관계관리 시스템</title>
 	<link rel="stylesheet" href="css/style.css">
@@ -62,16 +60,14 @@
 
 		<div class="section section-monthly">
 			<h3>월별 매출액</h3>
-			<div class="chart-column chart-area">
-				<!--아래 이미지를 chart로 바꿔주세요.
-					1. 크기 : 가로 100% / 세로 267px 고정
-					2. 차트 라인 두께 : 8px
-					3. 차트 라인 위쪽 모서리 둥글게 처리
-					4. 색상
-						- 밝은 회색 : rgba(#2E2F2E,0.2)
-						- 진한 회색 : #2E2F2E
-				-->
-				<img src="images/temp-chart/home-monthly.png">
+			<div class="chart">
+                <div class="chart-area">
+                    <!--아래 이미지를 chart로 바꿔주세요.
+                        1. 크기 : 가로 100% / 세로 267px 고정
+                        2. 차트 라인 위쪽 모서리 둥글게 처리
+                    -->
+                    <img src="images/temp-chart/home-monthly.png" style="height:267px">
+                </div>
 			</div>
 		</div><!--//section-->
 
@@ -80,42 +76,42 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th scope="col" class="nowrap tc">순위</th>
-						<th scope="col" class="nowrap">구분</th>
-						<th scope="col" class="nowrap">상품명</th>
-						<th scope="col" class="nowrap tr">매출액</th>
+						<th scope="col" class="tc">순위</th>
+						<th scope="col">구분</th>
+						<th scope="col">상품명</th>
+						<th scope="col" class="tr">매출액</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="active">
-						<th scope="row" class="nowrap tc">1</th>
-						<td class="nowrap">숙박</td>
-						<td class="text-ellipsis">파라다이스 호텔 제주 파라다이스</td>
-						<td class="nowrap tr">53,189,000</td>
+						<th scope="row" class="tc">1</th>
+						<td>숙박</td>
+						<td>파라다이스 호텔 제주 파라다이스</td>
+						<td class="tr">53,189,000</td>
 					</tr>
 					<tr>
-						<th scope="row" class="nowrap tc">2</th>
-						<td class="nowrap">소셜&middot;관광지</td>
-						<td class="text-ellipsis">대명리조트</td>
-						<td class="nowrap tr">20,000,000</td>
+						<th scope="row" class="tc">2</th>
+						<td>소셜&middot;관광지</td>
+						<td>대명리조트</td>
+						<td class="tr">20,000,00002000000</td>
 					</tr>
 					<tr>
-						<th scope="row" class="nowrap tc">3</th>
-						<td class="nowrap">렌터카</td>
-						<td class="text-ellipsis">카니발</td>
-						<td class="nowrap tr">860,000</td>
+						<th scope="row" class="tc">3</th>
+						<td>렌터카</td>
+						<td>카니발</td>
+						<td class="tr">860,000</td>
 					</tr>
 					<tr>
-						<th scope="row" class="nowrap tc">4</th>
-						<td class="nowrap">소셜&middot;관광지</td>
-						<td class="text-ellipsis">파라다이스 호텔 제주</td>
-						<td class="nowrap tr">20,000,000</td>
+						<th scope="row" class="tc">4</th>
+						<td>소셜&middot;관광지</td>
+						<td>파라다이스 호텔 제주</td>
+						<td class="tr">20,000,000</td>
 					</tr>
 					<tr>
-						<th scope="row" class="nowrap tc">5</th>
-						<td class="nowrap">소셜&middot;관광지</td>
-						<td class="text-ellipsis">파라다이스 호텔 제주</td>
-						<td class="nowrap tr">400,000</td>
+						<th scope="row" class="tc">5</th>
+						<td>소셜&middot;관광지</td>
+						<td>파라다이스 호텔 제주</td>
+						<td class="tr">400,000</td>
 					</tr>
 				</tbody>
 			</table>
@@ -125,16 +121,14 @@
 
 		<div class="section section-weekly">
 			<h3>주간 매출 비교</h3>
-			<div class="chart-column chart-area">
-				<!--아래 이미지를 chart로 바꿔주세요.
-					1. 크기 : 가로 100% / 세로 286px 고정
-					2. 차트 라인 두께 : 8px
-					3. 차트 라인 위쪽 모서리 둥글게 처리
-					4. 색상
-						- 중간 회색 : #A59E96
-						- 삘강 : #DF4F49
-				-->
-				<img src="images/temp-chart/home-weekly.png">
+			<div class="chart">
+                <div class="chart-area">
+                    <!--아래 이미지를 chart로 바꿔주세요.
+                        1. 크기 : 가로 100% / 세로 286px 고정
+                        2. 차트 라인 위쪽 모서리 둥글게 처리
+                    -->
+                    <img src="images/temp-chart/home-weekly.png" style="height:286px">
+                </div>
 			</div>
 		</div><!--//section-->
 
@@ -146,22 +140,16 @@
 					<!--아래 이미지를 chart로 바꿔주세요.
 						1. 크기 : 가로/세로 180px 고정
 						2. 차트 라인 두께 : 15px
-						3. 색상
-							- 밝은 회색 : #EFEDEC
-							- 중간 회색 : #A59E96
-							- 삘강 : #DF4F49
-							- 밝은 삘강 : #E4B9B9
-							- 진한 회색 : #2E2F2E
 					-->
 					<img src="images/temp-chart/home-location.png">
 				</div>
 
 				<ul class="list-label">
-					<li class="chart-label color-brown-gray">
+					<li class="chart-label color-beige">
 						<h6>서울 : 10&#37;</h6>
 						<span>85,620,000원</span>
 					</li>
-					<li class="chart-label color-yellow-gray">
+					<li class="chart-label color-brown-gray">
 						<h6>경기도 : 10&#37;</h6>
 						<span>85,620,000원</span>
 					</li>

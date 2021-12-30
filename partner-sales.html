@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>업체별 매출 통계 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>제휴 업체 분석</span>
+			<h2>업체별 매출 통계</h2>
+		</div>
+
+		<form class="form-filter">
+            <dl class="filter-item">
+				<dt>카테고리</dt>
+				<dd>
+					<label class="checkbox-container" for="categoryAll">전체
+						<input type="checkbox" id="categoryAll" checked>
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryGolf">골프
+						<input type="checkbox" id="categoryGolf">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySouvenir">기념품
+						<input type="checkbox" id="categorySouvenir">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryRentcar">렌터카
+						<input type="checkbox" id="categoryRentcar">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
+						<input type="checkbox" id="categorySocialSpot">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
+						<input type="checkbox" id="categorySocialLeisure">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
+						<input type="checkbox" id="categorySocialRestaurant">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
+						<input type="checkbox" id="categorySocialBeauty">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
+						<input type="checkbox" id="categorySocialAgency">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
+						<input type="checkbox" id="categorySocialActivity">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
+						<input type="checkbox" id="categorySocialSeat">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryHotel">숙박
+						<input type="checkbox" id="categoryHotel">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryProduct">특산품
+						<input type="checkbox" id="categoryProduct">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryAir">항공
+						<input type="checkbox" id="categoryAir">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+            <dl class="filter-item">
+				<dt>기간</dt>
+				<dd>
+					<label class="radio-container" for="periodYesterday">어제
+						<input type="radio" id="periodYesterday" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeek">1주일
+						<input type="radio" id="periodWeek">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodOne">1개월
+						<input type="radio" id="periodOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodThree">3개월
+						<input type="radio" id="periodThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+
+					<!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+			<dl class="filter-item">
+				<dt>업체명</dt>
+				<dd>
+					<input type="text" class="width-100">
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+		<hr class="gutter-large">
+
+        <div class="section width-100">
+			<div class="chart">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 너비 : 가변 100%
+						2. 높이 : 399px
+						3. 차트 라인 두께 : 8px
+						4. 색상
+							- 밝은 빨강 : #E4B9B9
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/partner-sales.png" style="height:399px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red-10">
+						<h6>판매 금액</h6>
+					</li>
+					<li class="chart-label color-red-25">
+						<h6>취소 수수료</h6>
+					</li>
+					<li class="chart-label color-red-40">
+						<h6>판매 수수료</h6>
+					</li>
+					<li class="chart-label color-red-55">
+						<h6>총 할인 금액</h6>
+					</li>
+					<li class="chart-label color-red-70">
+						<h6>지원 할인 금액</h6>
+					</li>
+					<li class="chart-label color-red">
+						<h6>미지원 할인 금액</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>정산 대상 금액</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+        <hr class="gutter-medium">
+
+        <table class="table">
+            <caption>
+                <span>검색 결과 208건</span>
+                <button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+            </caption>
+			<thead>
+				<tr>
+					<th scope="col" class="tc">번호</th>
+					<th scope="col">카테고리</th>
+					<th scope="col">업체명</th>
+					<th scope="col">판매수</th>
+					<th scope="col">판매 금액</th>
+					<th scope="col">취소 수수료 &#47; 비율</th>
+					<th scope="col">판매 수수료 &#47; 비율</th>
+					<th scope="col">총 할인 금액 &#47; 비율</th>
+					<th scope="col">지원 할인 금액 &#47; 비율</th>
+					<th scope="col">미지원 할인 금액 &#47; 비율</th>
+					<th scope="col">정산 대상 금액 &#47; 비율</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" class="tc">1</th>
+					<td>숙박</td>
+					<td class="fw-bold"><a data-bs-toggle="modal" data-bs-target="#modalPartnerSales001" class="tu">파라다이스 호텔</a></td>
+					<td class="tr">45</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0 &#47; 10&#37;</td>
+					<td class="tr">1,000,000 &#47; 10&#37;</td>
+					<td class="tr">200,000 &#47; 10&#37;</td>
+					<td class="tr">150,000 &#47; 10&#37;</td>
+					<td class="tr">93,650,000 &#47; 10&#37;</td>
+					<td class="tr">10,650,000 &#47; 10&#37;</td>
+				</tr>
+				<tr>
+					<th scope="row" class="tc">2</th>
+					<td>숙박</td>
+					<td class="fw-bold"><a data-bs-toggle="modal" data-bs-target="#modalPartnerSales002" class="tu">파라다이스 호텔</a></td>
+					<td class="tr">45</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0 &#47; 10&#37;</td>
+					<td class="tr">1,000,000 &#47; 10&#37;</td>
+					<td class="tr">200,000 &#47; 10&#37;</td>
+					<td class="tr">150,000 &#47; 10&#37;</td>
+					<td class="tr">93,650,000 &#47; 10&#37;</td>
+					<td class="tr">10,650,000 &#47; 10&#37;</td>
+				</tr>
+				<tr class="border-double"><!--마지막 줄 tr에 border-double 클래스를 넣어주세요.-->
+					<th scope="row" colspan="3" class="tc fw-bold">합계</th>
+					<td class="tr">45</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr">93,650,000</td>
+					<td class="tr">10,650,000</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->	
+
+	</div>
+	<!--//layout-content-->
+
+    <!-- Modal -->
+	<div class="modal fade" id="modalPartnerSales001" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">업체별 이용 고객</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">close</button>
+				</div>
+				<div class="modal-body">
+                    <hr class="gutter-medium bt-dark">
+
+					<div class="chart-row-4">
+                        <div class="section">
+                            <h3>성별 구매수</h3>
+                            <div class="chart-simpleDonut simpleDonut-small">
+                                
+                                <div class="chart-area align-left">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 빨강 : #E4B9B9
+                                            - 삘강 : #DF4F49
+                                    -->
+                                    <img src="images/temp-chart/partner-sales-donut-red.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-red-light">
+                                        <h6>남자 &#58; 36.6&#37;</h6>
+                                        <span>30건</span>
+                                    </li>
+                                    <li class="chart-label color-red">
+                                        <h6>여자 &#58; 63.4&#37;</h6>
+                                        <span>72건</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                        <div class="section">
+                            <h3>성별 매출액</h3>
+                            <div class="chart-simpleDonut simpleDonut-small">
+                                
+                                <div class="chart-area align-left">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 빨강 : #E4B9B9
+                                            - 삘강 : #DF4F49
+                                    -->
+                                    <img src="images/temp-chart/partner-sales-donut-red.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-red-light">
+                                        <h6>남자 &#58; 36.6&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-red">
+                                        <h6>여자 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                
+                        <div class="section">
+                            <h3>연령별 구매수</h3>
+                            <div class="chart-simpleDonut simpleDonut-small">
+                                
+                                <div class="chart-area align-left">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 회색 : #EFEDEC
+                                            - 중간 회색 : #A59E96
+                                            - 진한 회색 : #2E2F2E
+                                    -->
+                                    <img src="images/temp-chart/partner-sales-donut-gray.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-beige">
+                                        <h6>20대 &#58; 36.6&#37;</h6>
+                                        <span>30건</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>30대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray">
+                                        <h6>40대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-gray-dark">
+                                        <h6>50대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                        <div class="section">
+                            <h3>연령별 매출액</h3>
+                            <div class="chart-simpleDonut simpleDonut-small">
+                                
+                                <div class="chart-area align-left">
+                                    <!--아래 이미지를 chart로 바꿔주세요.
+                                        1. 크기 : 가로/세로 120px 고정
+                                        2. 차트 라인 두께 : 15px
+                                        3. 색상
+                                            - 밝은 회색 : #EFEDEC
+                                            - 중간 회색 : #A59E96
+                                            - 진한 회색 : #2E2F2E
+                                    -->
+                                    <img src="images/temp-chart/partner-sales-donut-gray.png">
+                                </div>
+                
+                                <ul class="list-label gutter-fixed">
+                                    <li class="chart-label color-beige">
+                                        <h6>20대 &#58; 36.6&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray-light">
+                                        <h6>30대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-brown-gray">
+                                        <h6>40대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                    <li class="chart-label color-gray-dark">
+                                        <h6>50대 &#58; 63.4&#37;</h6>
+                                        <span>3,000,000원</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--//section-->
+                    </div><!--//chart-row-4-->
+
+                    <hr class="gutter-large">
+
+                    <div class="section">
+                        <h3>지역별 구매수 &#47; 매출액</h3>
+                        <div class="chart">
+                            
+                            <div class="chart-area">
+                                <!--아래 이미지를 chart로 바꿔주세요.
+                                    1. 너비 : 가변 100%
+                                    2. 높이 : 271px
+                                    3. 차트 라인 두께 : 2px
+                                    4. 색상
+                                        - 중간 회색 : #A59E96
+                                        - 밝은 빨강 : #E4B9B9
+                                        - 진한 회색 : #2E2F2E
+                                        - 삘강 : #DF4F49
+                                -->
+                                <img src="images/temp-chart/partner-sales-mixed-red.png" style="height:271px">
+                            </div>
+            
+                            <ul class="list-label">
+                                <li class="chart-label color-red-light">
+                                    <h6>구매수</h6>
+                                </li>
+                                <li class="chart-label color-red">
+                                    <h6>매출액</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//section-->
+
+                    <hr class="gutter-large">
+
+                    <div class="section">
+                        <h3>월별 구매수 &#47; 매출액</h3>
+                        <div class="chart">
+                            
+                            <div class="chart-area">
+                                <!--아래 이미지를 chart로 바꿔주세요.
+                                    1. 너비 : 가변 100%
+                                    2. 높이 : 271px
+                                    3. 차트 라인 두께 : 2px
+                                    4. 색상
+                                        - 중간 회색 : #A59E96
+                                        - 밝은 빨강 : #E4B9B9
+                                        - 진한 회색 : #2E2F2E
+                                        - 삘강 : #DF4F49
+                                -->
+                                <img src="images/temp-chart/partner-sales-mixed-gray.png" style="height:271px">
+                            </div>
+            
+                            <ul class="list-label">
+                                <li class="chart-label color-brown-gray">
+                                    <h6>구매수</h6>
+                                </li>
+                                <li class="chart-label color-gray-dark">
+                                    <h6>매출액</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!--//section-->
+
+				</div><!--//modal-body-->
+			</div>
+		</div>
+	</div>
+	<!--//modal-->
+
+</body>
+</html>

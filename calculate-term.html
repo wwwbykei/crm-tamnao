@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>기간별 정산 관리 &#58; 고객관계관리 시스템</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+	<script src="js/IE9.js"></script>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/style.js"></script>
+</head>
+
+<body>
+
+	<div class="layout-sidebar"></div>
+
+	<div class="layout-content">
+
+		<div class="content-title">
+			<span>정산 관리</span>
+			<h2>기간별 정산 관리</h2>
+		</div>
+
+		<form class="form-filter">
+			<dl class="filter-item">
+				<dt>구분</dt>
+				<dd>
+                    <label class="radio-container" for="periodMonthly">월간
+						<input type="radio" id="periodMonthly" checked="checked">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodWeekly">주간
+						<input type="radio" id="periodWeekly">
+						<span class="checkmark"></span>
+					</label>
+					<label class="radio-container" for="periodCustom">사용자 설정
+						<input type="radio" id="periodCustom">
+						<span class="checkmark"></span>
+					</label>
+					<select>
+						<option>2021년</option>
+						<option>2020년</option>
+						<option>2019년</option>
+						<option></option>
+					</select>
+					<select>
+						<option>전체</option>
+						<option>1월</option>
+						<option>2월</option>
+						<option>3월</option>
+						<option>4월</option>
+						<option>5월</option>
+						<option>6월</option>
+						<option>7월</option>
+						<option>8월</option>
+						<option>9월</option>
+						<option>10월</option>
+						<option>11월</option>
+						<option>12월</option>
+					</select>
+
+                    <!--아래 기간 입력칸은 위 '사용자 설정' 라디오 버튼을 누른 경우만 노출되게 처리해주세요.
+						- display:block 으로 변경
+					-->
+					<div class="form-fromto" style="display:none">
+						<input type="date" value="2021-11-02">
+						<span>&dash;</span>
+						<input type="date" value="2021-12-01">
+					</div>
+				</dd>
+			</dl>
+			<div class="filter-buttons">
+				<button type="submit" class="btn-h40 btn-primary">검색</button>
+				<button type="button" class="btn-h40 btn-outline">초기화</button>
+			</div>
+		</form>
+		<!--//form-filter-->
+
+        <hr class="gutter-large">
+
+		<div class="section section-half">
+			<h3>전년대비 월별 정산금액 추이</h3>
+			<div class="chart">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 너비 : 가변 100%
+						2. 높이 : 295px
+						3. 라인 차트
+                            - 선 두께 : 2px
+						    - 색상
+							    - 삘강 : #DF4F49
+							    - 진한 회색 : #2E2F2E
+                        4. 배경 막대 차트
+                            - 두께 : 20px
+                            - 색 : #EFEDEC
+					-->
+					<img src="images/temp-chart/calculate-term-compare.png" style="height:295px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red">
+						<h6>2020년</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>2021년</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+        <div class="section section-half">
+			<h3>월별 금액 변동 추이</h3>
+			<div class="chart">
+				
+				<div class="chart-area">
+					<!--아래 이미지를 chart로 바꿔주세요.
+						1. 너비 : 가변 100%
+						2. 높이 : 295px
+						3. 차트 라인 두께 : 2px
+						4. 색상
+							- 밝은 빨강 : #E4B9B9
+							- 중간 회색 : #A59E96
+							- 삘강 : #DF4F49
+							- 진한 회색 : #2E2F2E
+					-->
+					<img src="images/temp-chart/calculate-term-monthly.png" style="height:295px">
+				</div>
+
+				<ul class="list-label">
+					<li class="chart-label color-red-light">
+						<h6>판매 금액</h6>
+					</li>
+					<li class="chart-label color-brown-gray">
+						<h6>판매 수수료</h6>
+					</li>
+					<li class="chart-label color-red">
+						<h6>할인 금액</h6>
+					</li>
+					<li class="chart-label color-gray-dark">
+						<h6>정산대상 금액</h6>
+					</li>
+				</ul>
+			</div>
+		</div><!--//section-->
+
+		<hr class="gutter-large">
+
+		<table class="table">
+			<caption>
+				<span>검색 결과 208건</span>
+				<button type="button" class="btn-h32 btn-outline">Excel 다운로드</a>
+			</caption>
+			<thead>
+				<tr>
+					<th scope="col" class="tc">번호</th>
+					<th scope="col">정산 추출일</th>
+					<th scope="col">정산 지급일</th>
+					<th scope="col">판매 금액</th>
+					<th scope="col">취소 수수료</th>
+					<th scope="col">판매 수수료</th>
+					<th scope="col">총 할인 금액</th>
+					<th scope="col">지원 할인 금액</th>
+					<th scope="col">미지원 할인 금액</th>
+					<th scope="col">정산 대상 금액</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" class="tc">1</th>
+					<td>2021-03-23</td>
+					<td>2021-10-01</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">93,650,000</td>
+				</tr>
+				<tr>
+					<th scope="row" class="tc">2</th>
+					<td>2021-03-23</td>
+					<td>2021-10-01</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">48,850,000</td>
+				</tr>
+				<tr class="border-double"><!--마지막 줄 tr에 border-double 클래스를 넣어주세요.-->
+					<th scope="row" colspan="3" class="tc fw-bold">합계</th>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">148,850,000</td>
+				</tr>
+			</tbody>
+		</table>
+
+        <hr class="gutter-medium"><!--표를 하나만 사용하는 경우, 이 코드는 삭제해 주세요.-->
+
+        <table class="table">
+			<thead>
+				<tr>
+					<th scope="col" class="tc">번호</th>
+					<th scope="col">정산월</th>
+					<th scope="col">판매 금액</th>
+					<th scope="col">취소 수수료</th>
+					<th scope="col">판매 수수료</th>
+					<th scope="col">총 할인 금액</th>
+					<th scope="col">지원 할인 금액</th>
+					<th scope="col">미지원 할인 금액</th>
+					<th scope="col">정산 대상 금액</th>
+					<th scope="col">전월 비교</th>
+					<th scope="col">전년 동월 비교</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" class="tc">1</th>
+					<td>2021-03-23</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">93,650,000</td>
+					<td class="tr text-green">&#9650; 10,650,000</td>
+					<td class="tr text-red">&#9660; 35,650,000</td>
+				</tr>
+				<tr>
+					<th scope="row" class="tc">2</th>
+					<td>2021-03-23</td>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">48,850,000</td>
+					<td class="tr text-red">&#9660; 10,650,000</td>
+					<td class="tr text-red">&#9660; 35,650,000</td>
+				</tr>
+				<tr class="border-double"><!--마지막 줄 tr에 border-double 클래스를 넣어주세요.-->
+					<th scope="row" colspan="2" class="tc fw-bold">합계</th>
+					<td class="tr">100,000,000</td>
+					<td class="tr">0</td>
+					<td class="tr">5,000,000</td>
+					<td class="tr">1,000,000</td>
+					<td class="tr">200,000</td>
+					<td class="tr">150,000</td>
+					<td class="tr fw-bold">148,850,000</td>
+					<td class="tr">0</td>
+					<td class="tr text-red">&#9660; 35,650,000</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="pagination">
+			<ul>
+				<!--이전 페이지가 존재하는 경우만 노출
+				<li><a href=""><i>first_page</i></a></li>
+				<li><a href=""><i>chevron_left</i></a></li>
+				-->
+				<li><a href="" class="active">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">8</a></li>
+				<li><a href="">9</a></li>
+				<li><a href="">10</a></li>
+				<li><a href=""><i>chevron_right</i></a></li>
+				<li><a href=""><i>last_page</i></a></li>
+			</ul>
+		</div><!--//pagination-->
+
+	</div>
+	<!--//layout-content-->
+
+</body>
+
+</html>
