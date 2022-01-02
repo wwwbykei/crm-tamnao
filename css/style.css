@@ -161,7 +161,7 @@ body { overflow-x: auto; min-width: 1420px; }
 
 .section-half + .section-half { margin-left: 6%; }
 
-.chart-wrap { overflow: hidden; position: relative; border: 1px solid #e1e1e1; background-color: #f7f7f7; text-align: center; }
+.chart-wrap { overflow: hidden; position: relative; border: 1px solid #e1e1e1; text-align: center; }
 
 .chart-wrap .nav-tab-vertical { position: absolute; top: 0; left: 0; }
 
