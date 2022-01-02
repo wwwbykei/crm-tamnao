@@ -38,56 +38,32 @@
 						<input type="checkbox" id="categoryAll" checked>
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categoryGolf">골프
-						<input type="checkbox" id="categoryGolf">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categorySouvenir">기념품
-						<input type="checkbox" id="categorySouvenir">
+					<label class="checkbox-container" for="categoryStay">숙박
+						<input type="checkbox" id="categoryStay">
 						<span class="checkmark"></span>
 					</label>
 					<label class="checkbox-container" for="categoryRentcar">렌터카
 						<input type="checkbox" id="categoryRentcar">
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categorySocialSpot">소셜 &middot; 관광지
-						<input type="checkbox" id="categorySocialSpot">
+					<label class="checkbox-container" for="categorySpot">관광지&#47;레저
+						<input type="checkbox" id="categorySpot">
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categorySocialLeisure">소셜 &middot; 레저
-						<input type="checkbox" id="categorySocialLeisure">
+					<label class="checkbox-container" for="categoryRestaurant">맛집
+						<input type="checkbox" id="categoryRestaurant">
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categorySocialRestaurant">소셜 &middot; 맛집
-						<input type="checkbox" id="categorySocialRestaurant">
+					<label class="checkbox-container" for="categoryPackage">여행사 상품
+						<input type="checkbox" id="categoryPackage">
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categorySocialBeauty">소셜 &middot; 뷰티
-						<input type="checkbox" id="categorySocialBeauty">
+					<label class="checkbox-container" for="categoryPresent">제주특산&#47;기념품
+						<input type="checkbox" id="categoryPresent">
 						<span class="checkmark"></span>
 					</label>
-					<label class="checkbox-container" for="categorySocialAgency">소셜 &middot; 여행사
-						<input type="checkbox" id="categorySocialAgency">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categorySocialActivity">소셜 &middot; 체험
-						<input type="checkbox" id="categorySocialActivity">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categorySocialSeat">소셜 &middot; 카시트
-						<input type="checkbox" id="categorySocialSeat">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categoryHotel">숙박
-						<input type="checkbox" id="categoryHotel">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categoryProduct">특산품
-						<input type="checkbox" id="categoryProduct">
-						<span class="checkmark"></span>
-					</label>
-					<label class="checkbox-container" for="categoryAir">항공
-						<input type="checkbox" id="categoryAir">
+					<label class="checkbox-container" for="categoryCarseat">카시트&#47;유모차
+						<input type="checkbox" id="categoryCarseat">
 						<span class="checkmark"></span>
 					</label>
 				</dd>
@@ -163,81 +139,88 @@
 
 		<hr class="gutter-large">
 
-		<div class="section section-gender">
-			<h3>성별 구매수</h3>
-			<div class="chart-simpleDonut">
-				
-				<div class="chart-area align-left">
-					<!--아래 이미지를 chart로 바꿔주세요.
-						1. 크기 : 가로/세로 180px 고정
-						2. 차트 라인 두께 : 15px
-						3. 색상
-							- 밝은 빨강 : #E4B9B9
-							- 삘강 : #DF4F49
-					-->
-					<img src="images/temp-chart/report-category-gender.png">
-				</div>
+        <div class="section-row"><!--20211231 div 추가-->
+            <div class="section section-gender">
+                <h3>성별 구매수</h3>
+                <div class="chart-horizontal"><!--20211231 클래스 변경-->
+                    
+                    <div class="chart-area">
+                        <!--아래 이미지를 chart로 바꿔주세요.
+                            1. 크기 : 가로/세로 180px 고정
+                        -->
+                        <img src="images/temp-chart/report-category-gender.png">
+                    </div>
 
-				<ul class="list-label gutter-fixed">
-					<li class="chart-label color-red-light">
-						<h6>남자 &#58; 36.6&#37;</h6>
-						<span>30건</span>
-					</li>
-					<li class="chart-label color-red">
-						<h6>여자 &#58; 63.4&#37;</h6>
-						<span>72건</span>
-					</li>
-				</ul>
-			</div>
-		</div><!--//section-->
+                    <ul class="list-label">
+                        <li class="chart-label color-red-light">
+                            <h6>남자 &#58; 36.6&#37;</h6>
+                            <span>30건</span>
+                        </li>
+                        <li class="chart-label color-red">
+                            <h6>여자 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--//section-->
 
-		<div class="section section-age">
-			<h3>연령별 구매수</h3>
-			<div class="chart-simpleDonut">
-				
-				<div class="chart-area align-left">
-					<!--아래 이미지를 chart로 바꿔주세요.
-						1. 크기 : 가로/세로 180px 고정
-						2. 차트 라인 두께 : 15px
-						3. 색상
-							- 밝은 회색 : #EFEDEC
-							- 중간 회색 : #A59E96
-							- 진한 회색 : #2E2F2E
-					-->
-					<img src="images/temp-chart/report-category-age.png">
-				</div>
+            <div class="section section-age">
+                <h3>연령별 구매수</h3>
+                <div class="chart-horizontal"><!--20211231 클래스 변경-->
+                    
+                    <div class="chart-area flex-grow">
+                        <!--아래 이미지를 chart로 바꿔주세요.
+                            1. 크기 : 가로 100% / 세로 180px 고정
+                        -->
+                        <img src="images/temp-chart/report-category-age.png" style="height:180px"><!--20211231 높이 변경-->
+                    </div>
 
-				<ul class="list-label gutter-fixed">
-					<li class="chart-label color-beige">
-						<h6>20대 &#58; 36.6&#37;</h6>
-						<span>30건</span>
-					</li>
-					<li class="chart-label color-brown-gray">
-						<h6>30대 &#58; 63.4&#37;</h6>
-						<span>72건</span>
-					</li>
-					<li class="chart-label color-gray-dark">
-						<h6>40대 &#58; 63.4&#37;</h6>
-						<span>72건</span>
-					</li>
-				</ul>
-			</div>
-		</div><!--//section-->
+                    <ul class="list-label"><!--20211231 연령별 li 개수 추가-->
+                        <li class="chart-label color-gray-10"><!--20211231 색상 클래스 변경-->
+                            <h6>10대 미만 &#58; 36.6&#37;</h6>
+                            <span>30건</span>
+                        </li>
+                        <li class="chart-label color-gray-25"><!--20211231 색상 클래스 변경-->
+                            <h6>10대 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                        <li class="chart-label color-gray-40"><!--20211231 색상 클래스 변경-->
+                            <h6>20대 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                        <li class="chart-label color-gray-55"><!--20211231 색상 클래스 변경-->
+                            <h6>30대 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                        <li class="chart-label color-gray-70"><!--20211231 색상 클래스 변경-->
+                            <h6>40대 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                        <li class="chart-label color-gray-85"><!--20211231 색상 클래스 변경-->
+                            <h6>50대 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                        <li class="chart-label color-gray-dark"><!--20211231 색상 클래스 변경-->
+                            <h6>60대 이상 &#58; 63.4&#37;</h6>
+                            <span>72건</span>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--//section-->
+        </div><!--20211231 div 추가-->
 
-		<div class="section section-linechart">
+        <hr class="gutter-large"><!--20211231 추가-->
+
+		<div class="section width-100"><!--20211231 클래스 변경-->
 			<h3>지역별 구매 고객 매출액</h3>
 			<div class="chart">
 				
 				<div class="chart-area">
 					<!--아래 이미지를 chart로 바꿔주세요.
 						1. 너비 : 가변 100%
-						2. 높이 : 248px
-						2. 차트 라인 두께 : 2px
-						3. 색상
-							- 삘강 : #DF4F49
-							- 진한 회색 : #2E2F2E
+						2. 높이 : 271px
 					-->
-					<img src="images/temp-chart/report-category-region.png" style="height:248px">
+					<img src="images/temp-chart/report-category-region.png" style="height:271px"><!--20211231 높이 변경-->
 				</div>
 
 				<ul class="list-label">

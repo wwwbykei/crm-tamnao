@@ -161,21 +161,21 @@ body { overflow-x: auto; min-width: 1420px; }
 
 .section-half + .section-half { margin-left: 6%; }
 
-.chart-wrap { overflow: hidden; position: relative; border: 1px solid #e1e1e1; text-align: center; }
+.chart-wrap { overflow: hidden; position: relative; border: 1px solid #e1e1e1; background-color: #f7f7f7; text-align: center; }
 
 .chart-wrap .nav-tab-vertical { position: absolute; top: 0; left: 0; }
 
-.chart-wrap .button-wrap { position: absolute; top: 0; right: 0; bottom: 0; padding: 28px 24px; border-left: 1px solid #e1e1e1; }
+.chart-wrap .button-wrap { position: absolute; top: 0; right: 0; bottom: 0; padding: 24px; border-left: 1px solid #e1e1e1; }
 
 .chart-wrap .chart-semiCircleGauge + .chart-semiCircleGauge { margin-left: 6%; }
 
-.chart-row-2 { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+.chart-row-2 { overflow: hidden; }
 
-.chart-row-2 > .section { -webkit-box-flex: 1; -ms-flex: 1 1 50%; flex: 1 1 50%; }
+.chart-row-2 > .section { float: left; }
 
-.chart-row-4 { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+.chart-row-4 { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; margin-right: -1.65%; margin-left: -1.65%; }
 
-.chart-row-4 > .section { -webkit-box-flex: 1; -ms-flex: 1 1 20%; flex: 1 1 20%; }
+.chart-row-4 > .section { -webkit-box-flex: 1; -ms-flex: 1 1 20%; flex: 1 1 20%; margin: 0 1.65%; }
 
 .chart-area img { display: block; }
 
@@ -193,15 +193,11 @@ body { overflow-x: auto; min-width: 1420px; }
 
 .list-label .chart-label { float: left; }
 
-.gutter-fixed { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; }
-
-.gutter-fixed > *[class^='chart-label'] { max-width: 108px; }
-
-.gutter-fixed > *[class^='chart-label']:nth-child(odd) { margin-right: 20px; }
-
 .chart-label { position: relative; padding-left: 14px; text-align: left; }
 
 .chart-label.color-beige:before { background-color: #EFEDEC; }
+
+.chart-label.color-blue-gray:before { background-color: #CCD2E0; }
 
 .chart-label.color-brown-gray:before { background-color: #A59E96; }
 
@@ -209,9 +205,23 @@ body { overflow-x: auto; min-width: 1420px; }
 
 .chart-label.color-gray-dark:before { background-color: #2E2F2E; }
 
-.chart-label.color-green-gray:before { background-color: #ABACAB; }
+.chart-label.color-gray-10:before { background-color: rgba(46, 47, 46, 0.1); }
+
+.chart-label.color-gray-25:before { background-color: rgba(46, 47, 46, 0.25); }
+
+.chart-label.color-gray-40:before { background-color: rgba(46, 47, 46, 0.4); }
+
+.chart-label.color-gray-55:before { background-color: rgba(46, 47, 46, 0.55); }
+
+.chart-label.color-gray-70:before { background-color: rgba(46, 47, 46, 0.7); }
+
+.chart-label.color-gray-85:before { background-color: rgba(46, 47, 46, 0.85); }
+
+.chart-label.color-orange-light:before { background-color: #EECFB7; }
 
 .chart-label.color-red:before { background-color: #DF4F49; }
+
+.chart-label.color-red-brown-gray:before { background-color: #B9958D; }
 
 .chart-label.color-red-light:before { background-color: #E4B9B9; }
 
@@ -233,89 +243,71 @@ body { overflow-x: auto; min-width: 1420px; }
 
 .chart-label-line { -webkit-box-flex: 1; -ms-flex: 1 1 47%; flex: 1 1 47%; position: relative; margin-top: 2px; margin-bottom: 2px; padding-left: 28px; text-align: left; }
 
-.chart-label-line.solid.color-brown-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #A59E96; }
+.chart-label-line.color-blue-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #A59E96; }
 
-.chart-label-line.solid.color-gray-dark:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #2E2F2E; }
+.chart-label-line.color-brown-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #A59E96; }
 
-.chart-label-line.solid.color-orange-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #EECFB7; }
+.chart-label-line.color-gray-dark:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #2E2F2E; }
 
-.chart-label-line.solid.color-red:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #DF4F49; }
+.chart-label-line.color-orange-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #EECFB7; }
 
-.chart-label-line.solid.color-red-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #E4B9B9; }
+.chart-label-line.color-red:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #DF4F49; }
 
-.chart-label-line.dash-2.color-brown-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #A59E96), color-stop(0%, #fff)); background-image: linear-gradient(to right, #A59E96 50%, #fff 0%); background-position: 0 50%; background-size: 4px 2px; background-repeat: repeat-x; }
+.chart-label-line.color-red-brown-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #E4B9B9; }
 
-.chart-label-line.dash-2.color-gray-dark:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #2E2F2E), color-stop(0%, #fff)); background-image: linear-gradient(to right, #2E2F2E 50%, #fff 0%); background-position: 0 50%; background-size: 4px 2px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-2.color-orange-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #EECFB7), color-stop(0%, #fff)); background-image: linear-gradient(to right, #EECFB7 50%, #fff 0%); background-position: 0 50%; background-size: 4px 2px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-2.color-red:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #DF4F49), color-stop(0%, #fff)); background-image: linear-gradient(to right, #DF4F49 50%, #fff 0%); background-position: 0 50%; background-size: 4px 2px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-2.color-red-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #E4B9B9), color-stop(0%, #fff)); background-image: linear-gradient(to right, #E4B9B9 50%, #fff 0%); background-position: 0 50%; background-size: 4px 2px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-8.color-brown-gray:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #A59E96), color-stop(0%, #fff)); background-image: linear-gradient(to right, #A59E96 50%, #fff 0%); background-position: 0 50%; background-size: 8px 4px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-8.color-gray-dark:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #2E2F2E), color-stop(0%, #fff)); background-image: linear-gradient(to right, #2E2F2E 50%, #fff 0%); background-position: 0 50%; background-size: 8px 4px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-8.color-orange-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #EECFB7), color-stop(0%, #fff)); background-image: linear-gradient(to right, #EECFB7 50%, #fff 0%); background-position: 0 50%; background-size: 8px 8px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-8.color-red:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #DF4F49), color-stop(0%, #fff)); background-image: linear-gradient(to right, #DF4F49 50%, #fff 0%); background-position: 0 50%; background-size: 8px 4px; background-repeat: repeat-x; }
-
-.chart-label-line.dash-8.color-red-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #E4B9B9), color-stop(0%, #fff)); background-image: linear-gradient(to right, #E4B9B9 50%, #fff 0%); background-position: 0 50%; background-size: 8px 4px; background-repeat: repeat-x; }
+.chart-label-line.color-red-light:before { content: ""; display: block; position: absolute; top: 50%; left: 0; width: 20px; height: 2px; margin-top: -1px; background-color: #E4B9B9; }
 
 .chart-label-line h6 { font-size: 1.2rem; }
 
 .chart-label-line span { color: #666; }
 
-.chart-horizontal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.label-column2 > *[class^="chart-label"] { display: block; float: left; width: 47%; margin: 4px 6% 4px 0; }
 
-.chart-horizontal .chart-area { display: inline-block; margin-right: 4.88%; }
+.label-column2 > *[class^="chart-label"]:nth-child(even) { margin-right: 0; }
 
-.chart-horizontal .list-label { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; max-width: 240px; }
+.chart-horizontal { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.chart-horizontal .list-label > *[class^='chart-label'] { max-width: 108px; }
+.chart-horizontal .chart-area { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; display: inline-block; margin-right: 4.88%; }
 
-.chart-horizontal .list-label > *[class^='chart-label']:nth-child(odd) { margin-right: 20px; }
+.chart-horizontal .chart-area img { width: 100%; }
 
-.chart-horizontal .chart-label { -webkit-box-flex: 1; -ms-flex: 1 1 47%; flex: 1 1 47%; }
+.chart-horizontal .list-label { max-width: 320px; margin-top: 0; }
+
+.chart-horizontal .list-label > *[class^="chart-label"] { display: block; float: left; width: 47%; margin: 4px 6% 4px 0; }
+
+.chart-horizontal .list-label > *[class^="chart-label"]:nth-child(even) { margin-right: 0; }
 
 .chart-semiCircleGauge { display: inline-block; margin-top: 20px; }
 
-.chart-semiCircleGauge .chart-area, .chart-semiCircleGauge .list-label { display: inline-block; vertical-align: middle; }
+.chart-semiCircleGauge .chart-area, .chart-semiCircleGauge .list-label { display: inline-block; vertical-align: middle; margin-left: 40px; }
 
-.chart-semiCircleGauge .list-label { margin-left: 40px; }
+.chart-semiCircleGauge .chart-area > li, .chart-semiCircleGauge .list-label > li { display: inline-block; }
 
-.chart-semiCircleGauge .list-label > li { display: inline-block; }
-
-.chart-semiCircleGauge .list-label > li:not(:first-child) { margin-left: 20px; }
+.chart-semiCircleGauge .chart-area > li:not(:first-child), .chart-semiCircleGauge .list-label > li:not(:first-child) { margin-left: 20px; }
 
 .chart-simpleDonut .chart-area { width: 180px; height: 180px; margin: auto; }
 
 .chart-simpleDonut .chart-area.align-left { margin-left: 0; }
 
-.chart-simpleDonut .list-label { margin-top: 16px; }
-
-.chart-simpleDonut .chart-label { margin-top: 8px; margin-bottom: 8px; }
-
 .chart-simpleDonut.simpleDonut-small .chart-area { width: 120px; height: 120px; }
 
-.chart-donut-horizontal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.chart-simpleDonut .list-label { margin-top: 20px; }
 
-.chart-donut-horizontal .chart-area { display: inline-block; margin-right: 4.88%; }
+.chart-donut-horizontal { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.chart-donut-horizontal .list-label { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; max-width: 240px; }
+.chart-donut-horizontal .chart-area { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; display: inline-block; margin-right: 4.88%; }
 
-.chart-donut-horizontal .list-label > *[class^='chart-label'] { max-width: 108px; }
+.chart-donut-horizontal .chart-area img { width: 100%; }
 
-.chart-donut-horizontal .list-label > *[class^='chart-label']:nth-child(odd) { margin-right: 20px; }
+.chart-donut-horizontal .list-label { max-width: 320px; margin-top: 0; }
 
-.chart-donut-horizontal .chart-label { -webkit-box-flex: 1; -ms-flex: 1 1 47%; flex: 1 1 47%; }
+.chart-donut-horizontal .list-label > *[class^="chart-label"] { display: block; float: left; width: 47%; margin: 4px 6% 4px 0; }
 
-.chart-donut-horizontal .chart-area { width: 120px; height: 120px; }
+.chart-donut-horizontal .list-label > *[class^="chart-label"]:nth-child(even) { margin-right: 0; }
+
+.chart-donut-horizontal .chart-area { -webkit-box-flex: 0; -ms-flex-positive: 0; flex-grow: 0; width: 120px; height: 120px; }
 
 .chart-donut-horizontal .chart-area img { max-width: 120px; }
-
-.chart-donut-horizontal .list-label { margin-left: 40px; }
 
 .chart-column-single { text-align: center; }
 
@@ -599,7 +591,7 @@ img, video { max-width: 100%; height: auto; }
 
 .nav-tab-vertical { width: 132px; }
 
-.nav-tab-vertical .tab-item a { display: block; padding: 9px 16px 10px; border-right: 1px solid #e1e1e1; background-color: #f4f4f4; font-size: 1.4rem; }
+.nav-tab-vertical .tab-item a { display: block; padding: 9px 16px 10px; border-right: 1px solid #e1e1e1; font-size: 1.4rem; }
 
 .nav-tab-vertical .tab-item a.active { position: relative; border-right: 1px solid #333; background-color: #333; color: #fff; }
 
@@ -697,15 +689,11 @@ img, video { max-width: 100%; height: auto; }
 
 .page-home .section-ranking .table th:nth-child(2), .page-home .section-ranking .table td:nth-child(2) { width: 108px; }
 
-.page-home .section-weekly { width: 56%; }
+.page-home .section-location { width: 56%; }
+
+.page-home .section-weekly { width: 38%; margin-left: 6%; }
 
 .page-home .section-weekly .chart img { height: 286px; }
-
-.page-home .section-location { width: 38%; margin-left: 6%; }
-
-.page-home .section-location .chart-simpleDonut .chart-label { width: 28%; }
-
-.page-home .section-location .chart-simpleDonut .chart-label:not(:nth-child(3n+1)) { margin-left: 8%; }
 
 .page-home .section-status { overflow: hidden; margin: 0 -43px; }
 
@@ -725,7 +713,7 @@ img, video { max-width: 100%; height: auto; }
 
 .page-customer-point .section-simpleDonut { float: left; width: 27%; }
 
-.page-customer-point .chart-simpleDonut .chart-label { width: 44%; }
+.page-customer-point .chart-simpleDonut .chart-label { width: 44%; margin-top: 4px; margin-bottom: 4px; }
 
 .page-customer-point .chart-simpleDonut .chart-label:nth-child(2n) { margin-left: 12%; }
 
@@ -733,15 +721,19 @@ img, video { max-width: 100%; height: auto; }
 
 .page-data-type .section-linechart { width: 100%; }
 
-.page-report-purchase .section { float: left; }
+.page-report-purchase .section-row { overflow: hidden; }
 
-.page-report-purchase .section-gender, .page-report-purchase .section-age { width: 18%; }
+.page-report-purchase .section-gender { float: left; width: 300px; margin-right: 7.5%; }
 
-.page-report-purchase .section-age { margin: 0 6%; }
+.page-report-purchase .section-gender .chart-area { width: 180px; height: 180px; margin-right: 32px; }
 
-.page-report-purchase .section-age .chart-label:nth-child(2n+3) { clear: both; }
+.page-report-purchase .section-gender .chart-area img { max-width: 180px; width: auto; }
 
-.page-report-purchase .section-linechart { overflow: hidden; width: 52%; }
+.page-report-purchase .section-gender .chart-label { width: auto; }
+
+.page-report-purchase .section-age .chart-area { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; }
+
+.page-report-purchase .section-age .chart-area img { width: 100%; }
 
 .page-marketing-recommend .content-title { border-bottom: 1px solid #e1e1e1; }
 
@@ -840,3 +832,5 @@ img, video { max-width: 100%; height: auto; }
 .modal-survey-result .list-surveyresult > li { float: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid #e1e1e1; }
 
 .modal-survey-result .list-surveyresult .chart-area { width: 69%; }
+
+.modal-survey-result .chart-row-2 .section:first-child .chart-donut-horizontal .chart-label:not(:first-child) { margin-right: 20px; }
