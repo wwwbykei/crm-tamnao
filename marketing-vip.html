@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>우수고객 조회 &#58; 고객관계관리 시스템</title>
+	<title>등급별 우수고객 조회 &#58; 고객관계관리 시스템</title><!--20220111 페이지명 수정-->
 	<link rel="stylesheet" href="css/style.css">
 	<!--[if lt IE 9]>
 	<script src="js/IE9.js"></script>
@@ -27,11 +27,77 @@
 
 		<div class="content-title">
 			<span>마케팅 관리</span>
-			<h2>우수고객 조회</h2>
+			<h2>등급별 우수고객 조회</h2><!--20220111 페이지명 수정-->
 		</div>
 
 		<form class="form-filter">
 			<dl class="filter-item">
+				<dt>카테고리</dt>
+				<dd>
+					<label class="checkbox-container" for="categoryAll">전체
+						<input type="checkbox" id="categoryAll" checked>
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryStay">숙박
+						<input type="checkbox" id="categoryStay">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryRentcar">렌터카
+						<input type="checkbox" id="categoryRentcar">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categorySpot">관광지&#47;레저
+						<input type="checkbox" id="categorySpot">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryRestaurant">맛집
+						<input type="checkbox" id="categoryRestaurant">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryPackage">여행사 상품
+						<input type="checkbox" id="categoryPackage">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryPresent">제주특산&#47;기념품
+						<input type="checkbox" id="categoryPresent">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="categoryCarseat">카시트&#47;유모차
+						<input type="checkbox" id="categoryCarseat">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+            <dl class="filter-item">
+				<dt>고객 등급</dt>
+				<dd>
+					<label class="checkbox-container" for="gradeAll">전체
+						<input type="checkbox" id="gradeAll">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeOne">1등급
+						<input type="checkbox" id="gradeOne">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeTwo">2등급
+						<input type="checkbox" id="gradeTwo">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeThree">3등급
+						<input type="checkbox" id="gradeThree">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeFour">4등급
+						<input type="checkbox" id="gradeFour">
+						<span class="checkmark"></span>
+					</label>
+					<label class="checkbox-container" for="gradeFive">5등급
+						<input type="checkbox" id="gradeFive">
+						<span class="checkmark"></span>
+					</label>
+				</dd>
+			</dl>
+            <dl class="filter-item">
 				<dt>선정 연도 &#47; 월</dt>
 				<dd>
 					<select>
@@ -74,32 +140,35 @@
                 </caption>
                 <thead>
                     <tr>
-                        <th scope="col" class="nowrap">순위</th>
-                        <th scope="col" class="nowrap">카테고리</th>
+                        <th scope="col">순위</th>
+                        <th scope="col">카테고리</th>
+                        <th scope="col">고객 등급</th>
                         <th scope="col">고객명</th>
-                        <th scope="col" class="nowrap">구매 횟수</th>
-                        <th scope="col" class="nowrap">구매 금액</th>
-                        <th scope="col" class="nowrap">선정 여부</th>
-                        <th scope="col" class="nowrap">선정 관리</th>
+                        <th scope="col">구매 횟수</th>
+                        <th scope="col">구매 금액</th>
+                        <th scope="col">선정 여부</th>
+                        <th scope="col">선정 관리</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" class="nowrap">1</th>
-                        <td class="nowrap">골프</td>
+                        <th scope="row">1</th>
+                        <td>골프</td>
+                        <td class="fw-bold">1등급</td>
                         <td class="fw-bold">honggd &#40;홍길동&#41;</td>
-                        <td class="nowrap">20</td>
-                        <td class="nowrap">4,000,500원</td>
-                        <td class="nowrap"></td>
+                        <td>20</td>
+                        <td>4,000,500원</td>
+                        <td></td>
                         <td><button type="button" class="btn-h32 btn-secondary">선정</button></td>
                     </tr>
                     <tr>
-                        <th scope="row" class="nowrap">2</th>
-                        <td class="nowrap">맛집</td>
+                        <th scope="row">2</th>
+                        <td>맛집</td>
+                        <td class="fw-bold">1등급</td>
                         <td class="fw-bold">administratortest202114010 &#40;홍길동&#41;</td>
-                        <td class="nowrap">16</td>
-                        <td class="nowrap">500,000원</td>
-                        <td class="nowrap">선정</td>
+                        <td>16</td>
+                        <td>500,000원</td>
+                        <td>선정</td>
                         <td><button type="button" class="btn-h32 btn-outline">선정 취소</button></td>
                     </tr>
                 </tbody>
